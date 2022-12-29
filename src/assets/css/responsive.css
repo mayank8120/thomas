@@ -1,0 +1,2190 @@
+/*--website--*/
+
+@media only screen and (max-width: 640px) {
+
+    .d-flex.buttonadj {
+        display: block !important;
+
+    }
+
+    .d-flex.buttonadj button {
+        margin-top: 40px;
+    }
+}
+
+@media only screen and (min-width: 991px) {
+    .secondFooter {
+        display: none;
+    }
+
+    .bottom-box {
+        display: none;
+    }
+
+    .webMarLeft0 {
+        margin-left: 0px;
+    }
+
+    .itemMobile {
+        display: none !important;
+    }
+
+    .nav_top_hedr.stick {
+        animation-duration: 0.8s;
+        animation-name: fadeInDown;
+        animation-timing-function: ease-in-out;
+        background: #fff;
+        left: 0;
+        padding: 8px 20px;
+        position: fixed !important;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 99;
+        border-bottom: none;
+        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12);
+        -webkit-transition: all 0.5s linear;
+        -moz-transition: all 0.5s linear;
+        -o-transition: all 0.5s linear;
+        -ms-transition: all 0.5s linear;
+        transition: all 0.5s linear;
+        z-index: 99;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .map-fixed {
+        position: relative;
+        top: 0px;
+        right: 0;
+        width: 100%;
+        background: rgba(252, 252, 253, 0.9);
+        left: auto;
+        width: calc(100% - 0);
+        /* display : none; */
+        /* height: 0px; */
+    }
+
+
+    .minWidth200 {
+        min-width: 200px;
+    }
+
+    .minWidth150 {
+        min-width: 150px;
+    }
+
+    .table.agencyDetailtable thead th {
+        vertical-align: top;
+    }
+
+
+
+
+
+
+    .checkFormTable .availBodyBlock {
+        padding: 0px;
+    }
+
+    .checkFormTable .blog-post {
+        display: block;
+    }
+
+    .checkFormTable .widthRadio {
+        width: 100%;
+        display: flex;
+    }
+
+    .checkFormTable .requestTag {
+        width: 100%;
+        margin-bottom: 0px;
+        text-align: left !important;
+        padding-left: 8px;
+    }
+
+
+
+
+
+
+    .checkFormTable .utf-blog-post-thumbnail {
+        width: 100%;
+    }
+
+    .checkFormTable .utf-blog-post-thumbnail-inner .listing-left .bg-image {
+        width: 100%;
+        height: 189px;
+    }
+
+    .checkFormTable.check-form .utf-blog-post-thumbnail-inner img {
+        position: inherit !important;
+        width: 100%;
+        height: 189px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    .checkFormTable .check-form .utf-blog-post-thumbnail-inner img {
+
+        width: 100%;
+        height: 189px;
+    }
+
+
+
+    .checkFormTable .checkboxItem.widthRadio .checkmark {
+        position: absolute;
+        top: 1px;
+        left: 0px;
+        height: 16px;
+        width: 16px;
+    }
+
+    .checkFormTable .checkboxBlock .checkmark::after {
+        left: 4px;
+        top: 2px;
+        width: 4px;
+        height: 8px;
+    }
+
+    .checkFormTable .listingBlockLine {
+        margin: 0px;
+    }
+
+    .checkFormTable .priceRangeMobile {
+        margin: 5px;
+    }
+
+
+
+
+
+
+
+    .housingNearby .sliderTextArea {
+        height: 155px;
+    }
+
+    .propertySearchPage .listingBlock2 .btnSectionList {
+        position: relative;
+        bottom: 0px;
+    }
+
+    .bg-image {
+        height: 250px;
+    }
+
+    .propertySearchPage .postin {
+
+        left: auto;
+        right: 16px;
+    }
+
+    .propertySearchPage .listing-details {
+        height: 100%;
+
+    }
+
+    .propertySearchPage .listing-rigt {
+        padding: 15px 20px;
+        max-width: 100%;
+    }
+
+    .mobile-view {
+        display: inherit !important;
+    }
+
+    /* .navbar {
+        padding: .5rem 0rem !important;
+    }
+    .navbarSection {
+        padding: 0 15px;
+    } */
+    .moreInfoBtn {
+        padding: 5px 16px;
+    }
+
+    .navbar.mobileDropdown {
+        justify-content: flex-start;
+    }
+
+    /* .navbar-brand img {
+        max-width: 180px;
+    } */
+    .propertyLogoImg {
+        width: 152px !important;
+        height: 152px !important;
+    }
+
+    .marginResponsive24 {
+        margin-bottom: 24px;
+    }
+
+    .marginLeft24 {
+        margin-left: 24px;
+    }
+
+    .availSec.checkFloorPlan a {
+        margin-top: 0px;
+    }
+
+    .rightOtherDetail {
+        margin-left: 0px !important;
+    }
+
+    .res24Top {
+        padding-top: 24px;
+    }
+
+    .mar24 {
+        margin: 24px -15px;
+    }
+
+    .agencyDetailBlock {
+        margin-bottom: 16px;
+    }
+
+    .detailPara2 {
+        margin-bottom: 16px;
+    }
+
+    .lineRespnsiveIndent {
+        display: -webkit-box;
+        /* -webkit-line-clamp: 2; */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .brdrLine5 {
+        margin: 17px -15px;
+    }
+
+    .detailRightSec {
+        margin-top: 0px;
+    }
+
+    .mobileTopHeading .media {
+        align-items: center;
+    }
+
+    .imageTextreaBlock {
+        width: inherit !important;
+        height: inherit !important;
+    }
+
+    .mrginTop16 {
+        margin-top: 16px;
+    }
+
+    .counterAgencyState {
+        margin: 0px;
+    }
+
+    .agencyStateListRight {
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    .agencyStateList ul li.listState {
+        border-radius: 0px;
+    }
+
+    .agencyStateListLeft {
+        border-right: none;
+    }
+
+    .agencyStateListLeft {
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    .listState .ResponsiveFlexDiv {
+        display: block !important;
+    }
+
+    .headingTab {
+        margin: 16px 0 16px;
+    }
+
+    .responsiveSecPad0 {
+        padding: 0;
+    }
+
+    .searchNav.searchNavBox {
+        margin: 0;
+    }
+
+    .savedPropertyBlock .checkAvailableBtn,
+    .savedPropertyBlock .checkAvailableBtn:hover {
+        margin-left: 4px;
+        width: inherit;
+    }
+
+    .btnBlock {
+        padding: 0 12px;
+    }
+
+    .savedPropertyBlock .leftImage {
+        width: 100%;
+    }
+
+    .paddingSec64 {
+        padding: 40px 0;
+    }
+
+    .searchForRentals {
+        margin: 12px 0;
+    }
+
+    .rentalAccordion .card-header {
+        background-color: #fff;
+    }
+
+    .rentalAccordion .card-header {
+        padding: 16px;
+    }
+
+    .rentalAccordion .card-header h5 button {
+        padding: 0px;
+    }
+
+    .rentalAccordion #accordion .btn {
+        text-align: left;
+        font-size: 14px;
+    }
+
+    .rentalAccordion #accordion {
+        margin: 0 -15px;
+        border-radius: 0px !important;
+    }
+
+    .headingAccordion h2 {
+        font-size: 18px;
+        margin-left: 12px;
+    }
+
+    .itemWebsite {
+        display: none !important;
+    }
+
+    .bannerSection {
+        padding: 84px 15px;
+    }
+
+    .bannerSectionText h1 {
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .responsive0 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    /* .responsive-15{
+        margin-left: -15px !important;
+        margin-right: -15px !important;
+    } */
+    .searchBox {
+        padding: 8px 12px;
+    }
+
+    .sectionTitle h2 {
+        font-size: 18px;
+    }
+
+    /* .responsiveFlex{
+        display: flex;
+    } */
+    .reaserchApartmentBlock h3 {
+        font-size: 16px;
+    }
+
+    .para {
+        font-size: 14px;
+    }
+
+    .colouredBox {
+        width: 56px;
+        height: 56px;
+        line-height: 56px;
+    }
+
+    .colouredBox img {
+        max-width: 26px;
+    }
+
+    .res_mb0 {
+        margin-bottom: 0px !important;
+    }
+
+    .listingBlock {
+        padding: 20px 0;
+    }
+
+    .listingBlock ul li h3 {
+        font-size: 16px;
+    }
+
+    .listingBlock ul li p {
+        font-size: 14px;
+    }
+
+    .list-style-type li {
+        margin-bottom: 24px;
+    }
+
+    .listingBlock .col-xs-6 {
+        width: 50%;
+    }
+
+    .list-style-type li:last-child {
+        margin-bottom: 32px;
+    }
+
+    .featureSection .nav-item {
+        margin-right: 0px;
+    }
+
+    .featureSection .nav-link {
+        font-size: 16px;
+    }
+
+    .featureSection .nav-pills .nav-link.active,
+    .featureSection .nav-pills .show>.nav-link {
+        border-bottom: 1px solid #9d56f7;
+        border-radius: 0px;
+        padding-bottom: 12px;
+    }
+
+    .featureSection #pills-tab {
+        border-bottom: none;
+    }
+
+    .featureSection .nav-link {
+        border-bottom: 1px solid #dedede;
+        border-radius: 0px;
+        padding-bottom: 12px;
+        padding-right: 25px;
+    }
+
+    .alertWidth img {
+        display: none;
+    }
+
+    .alertWidth {
+        max-width: 100%;
+    }
+
+    .alertWidth h2 {
+        font-size: 16px;
+    }
+
+    .mar15Res {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .alertWidth .input-group input {
+        font-size: 14px;
+    }
+
+    .getAlerted.brdrRadius4 {
+        border-radius: 0px 4px 4px 0px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .brandNav .owl-prev {
+        left: 0;
+    }
+
+    .brandNav .owl-prev,
+    .brandNav .owl-next {
+        position: absolute;
+        top: 0;
+        transform: translateY(-50%);
+        border: 1px solid #DEDEDE !important;
+        width: 24px !important;
+        height: 24px !important;
+        border-radius: 50% !important;
+        line-height: 21px !important;
+        background-color: #fff !important;
+    }
+
+    .brandNav .owl-next {
+        right: 0 !important;
+    }
+
+    .footerList {
+        margin-bottom: 32px;
+    }
+
+    .leftSide {
+        padding: 0 15px;
+    }
+
+    .rightSide.text-right {
+        text-align: left !important;
+    }
+
+    .rightSide ul li {
+        margin-left: 0px;
+        margin-right: 16px;
+    }
+
+    /* .navbar {
+        padding: .5rem 1rem;
+    } */
+    .resNavbarBread {
+        padding: 0.5rem 0rem;
+    }
+
+    .detailHeadSec h3 {
+        line-height: 24px;
+        margin-top: 10px;
+    }
+
+    .lishub-page .detailHeadSec h3 {
+        line-height: 22px;
+        font-size: 12px !important;
+    }
+
+    .responsiveMarLeft {
+        margin-left: 24px !important;
+    }
+
+    .navbar-light .navbar-toggler {
+        border: none;
+    }
+
+    .imageSec .item img {
+        border-radius: 0px;
+    }
+
+    .detailLeftSec {
+        margin-top: 15px;
+    }
+
+    .topHeadSec h2,
+    .priceTagDet h2 {
+        font-size: 18px;
+    }
+
+    .responsive15 {
+        padding: 15px 15px;
+    }
+
+    /* .topHeadSec {
+        margin-top: 16px;
+    } */
+    .lishub-page .leftTopParaSec {
+
+        width: 100% !important;
+    }
+
+    .lishub-page .priceTagDet {
+        margin-left: 0px !Important;
+    }
+
+    .listhub-button a {
+        width: 100% !important;
+    }
+
+    .lishub-page .leftTopParaSec .brownTag {
+        margin-right: 0;
+    }
+
+    .lishub-page .noMarginPad.listStyleNone.firstlist {
+        margin-right: 0;
+    }
+
+    .lishub-page .brownTag ul li p {
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .lishub-page .brownTag li {
+        width: 100%;
+    }
+
+    .lishub-page .blueTag li {
+        width: 100%;
+    }
+
+    .lishub-page .blueTag ul li p {
+        margin-bottom: 0 !important;
+        width: 100%;
+    }
+
+    .lishub-page .brownTag {
+        margin-top: 0 !important;
+
+    }
+
+    .blueTag ul li span {
+        margin-top: 13px !important;
+    }
+
+    .blueTag ul li .pbt {
+        margin-top: 5px !important;
+    }
+
+    .lishub-page .blueTag {
+        margin-top: 0 !important;
+
+    }
+
+    .lishub-page .blueTag ul {
+        margin-top: 0 !important;
+
+    }
+
+    .leftTopParaSec p {
+        font-size: 14px;
+    }
+
+    .topHeadSec ul li {
+        font-size: 16px;
+    }
+
+    .topHeadSec ul {
+        margin-left: 0px;
+        margin-top: 12px;
+    }
+
+    .resRightList20 li {
+        margin-right: 20px;
+    }
+
+    .ml-auto.Resnoauto {
+        margin-left: 0px !important;
+        width: 100%;
+    }
+
+    .availSec a {
+        padding: 13px 40px;
+        width: 100% !important;
+        display: inline-block !important;
+    }
+
+    .availSec {
+        margin-top: 16px;
+    }
+
+    .officeHoursBlock {
+        width: 100%;
+    }
+
+    .neighborhoodSec .infoBox:hover .onHoverBlock {
+        width: 150px;
+    }
+
+    .mapSection img {
+        width: 100%;
+    }
+
+    .mapSection span img {
+        max-width: 36px;
+    }
+
+    .availabilitySection h2,
+    .availabilitySection p {
+        font-size: 18px;
+    }
+
+    .sliderTextArea h4 {
+        font-size: 15px;
+    }
+
+    .resPonsivePad {
+        padding: 0px;
+    }
+
+    .nav-item.active::before {
+        display: none;
+    }
+
+    .searchNav {
+        margin: 0 15px;
+    }
+
+    .tagList ul li {
+        margin-right: 4px;
+    }
+
+    .tagList ul li {
+        float: left;
+    }
+
+    .brdrLine2 {
+        margin: 12px 0 16px;
+    }
+
+    .noMobileFlex {
+        display: block !important;
+    }
+
+    .propertyList ul li.listingBlock2 {
+        border-radius: 0px;
+        /* border: none; */
+    }
+
+    .leftImage img {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .listingSerach .leftImage img {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .rightText .topHeadSec ul {
+        margin-top: 0px;
+    }
+
+    .listingBlock2.active {
+        border: none !important;
+        box-shadow: none;
+    }
+
+    .listingMapBlock {
+        margin: 0 5px;
+    }
+
+    .mapRight0 {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    .mark1 {
+        top: 65%;
+        left: 20%;
+    }
+
+    .selectdTag {
+        background: #F6EFFF;
+    }
+
+    .agencyLandingLeftSec .topTitle h2 {
+        font-size: 18px;
+    }
+
+    .searchHousingBox {
+        padding: 15px;
+    }
+
+    .searchInputBlock.searchInputBlockAgency input {
+        height: 40px;
+        padding: 10px 112px 10px 36px;
+    }
+
+    .searchHousingBox .searchInputBlock button {
+        line-height: 36px;
+        height: 40px;
+    }
+
+    .subTitleHead p {
+        margin-top: 8px;
+    }
+
+    .leftagencyBlock {
+        display: none;
+    }
+
+    .topStatusBlock h4.colorBlue {
+        color: #188FFF;
+    }
+
+    .rightagencyBlock {
+        padding: 10px 15px 10px 10px;
+    }
+
+    .availbity {
+        margin-left: 6px;
+    }
+
+    .lineBtnMobile {
+        line-height: 18px;
+        font-size: 14px;
+    }
+
+    .availbilityBtn {
+        font-size: 14px !important;
+    }
+
+    .sliderTextArea p {
+        min-height: 42px;
+    }
+
+    .mar-15Res {
+        margin: 0 -15px;
+    }
+}
+
+@media (min-width: 1300px) and (max-width: 1320px) {
+    .propertySearchPage .leftImage img {
+        max-width: 320px;
+        min-width: 320px;
+        object-fit: cover;
+        height: 290px;
+    }
+
+    .listingSerach .leftImage img {
+        max-width: 220px;
+        min-width: 220px;
+        object-fit: cover;
+        height: 229px;
+    }
+}
+
+@media (min-width: 1320px) and (max-width: 1350px) {
+    .propertySearchPage .leftImage img {
+        max-width: 330px;
+        min-width: 330px;
+        object-fit: cover;
+        height: 211px;
+    }
+
+    .listingSerach .leftImage img {
+        max-width: 220px;
+        min-width: 220px;
+        object-fit: cover;
+        height: 229px;
+    }
+}
+
+@media (min-width: 1349px) and (max-width: 1401px) {
+    .propertySearchPage .leftImage img {
+        max-width: 360px;
+        min-width: 360px;
+        object-fit: cover;
+        height: 245px;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .leftImage img {
+        max-width: 370px !important;
+        min-width: 370px !important;
+        object-fit: cover !important;
+        height: 300px !important;
+    }
+
+    .propertySearchPage .leftImage img {
+        max-width: 360px;
+        min-width: 360px;
+        object-fit: cover;
+        height: 245px !important;
+    }
+}
+
+@media (min-width: 1300px) and (max-width: 1462px) {
+    .customFlexPercntLeft {
+        -ms-flex: 0 0 55%;
+        flex: 0 0 55%;
+        max-width: 55%;
+    }
+
+    .customFlexPercntRight {
+        -ms-flex: 0 0 45%;
+        flex: 0 0 45%;
+        max-width: 45%;
+    }
+}
+
+@media (min-width: 1462px) and (max-width: 1600px) {
+    .customFlexPercntLeft {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .customFlexPercntRight {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 1600px) and (max-width: 1700px) {
+    .customFlexPercntLeft {
+        -ms-flex: 0 0 46%;
+        flex: 0 0 46%;
+        max-width: 46%;
+    }
+
+    .customFlexPercntRight {
+        -ms-flex: 0 0 54%;
+        flex: 0 0 54%;
+        max-width: 54%;
+    }
+}
+
+@media only screen and (max-width: 481px) {
+    .detailPage.secPad24.propertydetail-page {
+        padding: 0px;
+    }
+
+    .serachDatadrop p a {
+        font-size: 16px;
+    }
+
+    .media.rewards {
+        align-items: center;
+    }
+
+    .about_bottm_section .rewards {
+        border: none;
+        padding: 0px;
+    }
+
+    .responsiveBtnDesign .fontSize14 {
+        font-size: 16px !important;
+    }
+
+    .responsiveBtnDesign .lineBtnCalling {
+        font-size: 16px;
+    }
+
+    .responsiveBtnDesign .checkAvailableBtn.colorWhite.brdrRadius4 {
+        width: 100% !important;
+        margin-top: 8px;
+    }
+
+    .d-flex.align-items-center.padda.responsiveBtnDesign {
+        display: block !important;
+    }
+
+    .responsiveBtnDesign .lineBtnCalling {
+        width: 100% !important;
+    }
+
+    .maxWidth260 {
+        max-width: 260px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .listingSerach .lineBtnCalling {
+        padding: 10px;
+    }
+}
+
+/* 05/03/2022 */
+@media screen and (max-width: 1280px) {
+    .navbarSection {
+        padding: 0px 20px;
+    }
+
+    /* .navbarSection .eshXow{
+        padding: 0;
+    } */
+    .navbarSection .eshXow img {
+        width: 150px;
+    }
+
+    .searchNavsmallMar {
+        width: 100%;
+        max-width: 162px;
+    }
+
+    .searchNav input {
+        width: 100%;
+        padding-right: 30px;
+    }
+
+    .text-section {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .navbarSection {
+        padding: 0px 15px;
+    }
+
+    .navbarSection .navbar-expand-lg .navbar-nav .nav-item a {
+        font-size: 14px;
+    }
+
+    .navbarSection .navbar-nav .nav-item {
+        margin-right: 15px;
+    }
+
+    .navbarSection .navbar-nav .nav-item:last-child {
+        margin-right: 20px;
+    }
+
+    .secPad {
+        padding: 45px 0px;
+    }
+
+    .react-multiple-carousel__arrow--left {
+        left: 0px !important;
+    }
+
+    .react-multiple-carousel__arrow--right {
+        right: 0px !important;
+    }
+
+    .text-section {
+        margin-top: 0px;
+    }
+
+    .secPad.proudPartners {
+        padding: 45px 0px 0px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .topPaddSec {
+        padding: 20px 0 0 !important;
+    }
+
+    .react-multi-carousel-list button {
+        display: none;
+    }
+
+    /* .sliderListing .d-flex{
+        display: block !important;
+    } */
+    /* .sidenavBlock{
+        padding:12px;
+    } */
+    /* .sidenavBlock li{
+        padding: 0px;
+    } */
+    /* .sidenavBlock li a,
+    .sidenavBlock li a:hover{
+        font-size: 15px;
+    } */
+    /* .sideBarLine{
+        margin: 15px 0;
+    } */
+    .sideBarMenu2 li span {
+        width: 22px;
+        height: 22px;
+        line-height: 25px;
+        margin-right: 10px;
+    }
+
+    /* .sideBarMenu2 li span img{
+        max-width: 18px;
+    } */
+    .lineBtnSignup {
+        margin: 12px 0px 0;
+    }
+
+    .secPad {
+        padding: 30px 0px;
+    }
+
+    .marginTop2 {
+        margin-top: 20px;
+    }
+
+    .tab-pane ul a {
+        margin-bottom: 20px;
+    }
+
+    .tab-pane ul a:last-child {
+        margin-bottom: 0px;
+    }
+
+    .list-style-type li:last-child {
+        margin-bottom: 24px;
+    }
+
+    .footerSec {
+        margin-top: 0px;
+    }
+
+    .ReactStickyHeader_root {
+        margin-bottom: 57px;
+    }
+
+    .accordionBoxInfo {
+        margin-top: 15px;
+    }
+
+    .detailRightSec .accordion-header .card-header {
+        padding: 10px;
+    }
+
+    .accordionBoxInfo .card-header .btn {
+        font-size: 15px;
+    }
+
+    .accordionBoxInfo .accordion-body {
+        padding: 10px;
+    }
+
+    .nearbyAgencyBlock ul li {
+        margin-bottom: 20px;
+    }
+
+    .headingSec p {
+        margin: 5px 0px;
+    }
+
+    .housingAuthority h3 {
+        margin-bottom: 10px;
+    }
+
+
+
+
+
+    .listus-section .bannerSectionText {
+        margin: 0 15px;
+    }
+
+    .reaserchApartmentBlock h3 {
+        font-size: 17px;
+    }
+
+    .para {
+        font-size: 15px;
+    }
+
+    .interner-syndiction p {
+        font-size: 16px;
+        line-height: 30.2px;
+    }
+
+    .interner-syndiction .textblue.font-weight700.textblue {
+        font-size: 24px;
+    }
+
+    .interner-syndiction p {
+        font-size: 14px;
+        line-height: 27px;
+    }
+
+    .listus-section .bannerSectionText h1 {
+        font-size: 26px;
+        line-height: 35.2px;
+    }
+
+    .listus-section .bannerSectionText h1 {
+        font-size: 28px;
+        line-height: 40.2px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .errorPage {
+        margin-top: 50px;
+    }
+
+    .responsiveMargintopAmen {
+        margin-top: 20px;
+    }
+
+    .bannerSection {
+        padding: 70px 10px;
+    }
+
+    .navbarSection {
+        padding: 0px 10px;
+    }
+
+    .navbarSection .navbar {
+        padding: 5px 0px;
+    }
+
+    .loginBtn {
+        padding: 4px 12px;
+    }
+
+    /* .sidenavBlock li a,
+    .sidenavBlock li a:hover{
+        font-size: 14px;
+    } */
+    /* .sideBarLine{
+        margin: 10px 0;
+    } */
+    .searchBox {
+        margin-top: 15px;
+    }
+
+    .secPad {
+        padding: 20px 0px;
+    }
+
+    .sectionTitle h2 {
+        font-size: 18px;
+    }
+
+    .reaserchApartmentBlock {
+        margin-bottom: 30px;
+    }
+
+    .react-multiple-carousel__arrow {
+        min-width: 30px !important;
+        min-height: 30px !important;
+    }
+
+    .react-multi-carousel-list .react-multiple-carousel__arrow::before {
+        font-size: 16px;
+    }
+
+    .react-multiple-carousel__arrow--left {
+        left: 16px !important;
+    }
+
+    .react-multiple-carousel__arrow--right {
+        right: 16px !important;
+    }
+
+    .popularCities .react-multiple-carousel__arrow--right {
+        right: 26px !important;
+    }
+
+    .popularCitySliderText h3 {
+        font-size: 15px;
+        margin-top: 14px;
+    }
+
+    .featureSection .nav-link {
+        font-size: 14px;
+        padding-right: 15px;
+    }
+
+    .listingBlock {
+        padding: 10px 0;
+    }
+
+    .footerBottom {
+        margin-top: 20px;
+    }
+
+    .secPad.footerSec {
+        padding-bottom: 0px;
+    }
+
+    .ReactStickyHeader_root {
+        margin-bottom: 50px;
+    }
+
+    .popularCitySliderText {
+        margin-bottom: 30px;
+    }
+
+    .tab-pane ul a {
+        margin-bottom: 0px;
+    }
+
+
+
+    .listus-section .bannerSectionText {
+        margin: 15px 15px;
+    }
+
+    .listus-section .bannerSectionText {
+        padding-top: 0 !important;
+    }
+
+    .text-section {
+        margin-top: 25px;
+    }
+
+    .interner-syndiction {
+        margin-top: 0px;
+        overflow: hidden;
+    }
+
+
+}
+
+@media screen and (max-width: 575px) {
+    .recaptcha_block {
+        transform: scale(0.75);
+        transform-origin: 0 0;
+    }
+
+    .rewards .fontSize18 {
+        font-size: 16px !important;
+    }
+
+    .titleHeading.botttomDetailSec .fontSize24 {
+        font-size: 18px;
+    }
+
+    .fairmarketRent {
+        padding: 15px 15px;
+    }
+
+    .imageLeft img {
+        margin-left: 0px;
+    }
+
+    .SectionBlock h3 {
+        margin-top: 0px;
+    }
+
+    .brdrLine {
+        border-top: 1px solid #dedede;
+        margin: 0px 0;
+    }
+
+    .AnaheimHousingAuthorityModal .statusTag {
+        display: flex;
+        align-self: center;
+    }
+
+    .twoButtonsModal a:first-child {
+        margin-bottom: 8px;
+    }
+
+    .extraPadRes .utf-blog-post-content {
+        padding: 16px 0;
+    }
+
+    .responsiveApartmentBottom .bottomFooter {
+        padding: 13px 12px;
+    }
+
+    .check-form .modal-body.responsiveApartment {
+        height: 100%;
+    }
+
+    .responsiveApartment .utf-blog-post-content {
+        padding: 15px 0;
+    }
+
+    .savedBtnn .availbilityBtn {
+        height: 35.6px;
+    }
+
+    .responsiveJustifyCenter {
+        justify-content: center;
+    }
+
+    .availbity.fontSize16.font-weight700.checkAvailFont14 span {
+        font-size: 14px;
+    }
+
+    .agencystate-page .propertyListState {
+        padding-top: 222px;
+    }
+
+    .responsiveCst .searchHousingBox {
+        border-radius: 0px;
+    }
+
+    .agencystate-page .responsiveCst .searchInputBlockk input {
+        height: 40px;
+    }
+
+    .agencystate-page .cst.responsiveCst {
+        width: 100%;
+    }
+
+    .secPad24.agenciesLanding.pb-0.housingAuthoritya {
+        padding: 16px 0 0;
+    }
+
+    .errorBanner {
+        padding: 30px 0;
+    }
+
+    .errorList {
+        padding: 16px !important;
+    }
+
+    .imageSec.sliderImageBlock .item img {
+        height: 240px;
+    }
+
+    .modalListImage img {
+        margin: 0 auto;
+        object-fit: cover;
+        width: 328px;
+        border-radius: 4px;
+        height: 328px;
+    }
+
+    .leftTopParaSec {
+        max-width: auto;
+        /* margin-right: 10px; */
+        min-width: auto;
+    }
+
+    .checkAvailableBtn.colorWhite.brdrRadius4 {
+        color: #fff !important;
+        margin-left: 0px;
+    }
+
+    .propertyList.propertyListScroll {
+        overflow-y: auto;
+        /* max-height: calc(100vh - 320px); */
+        box-shadow: 0px 5px 4px -2px #00000024;
+        padding-top: 92px;
+    }
+
+    .savedPropertyBlock .propertyList .rightText {
+        padding: 8px;
+    }
+
+    .savedPropertyBlock .propertyTitle h5 {
+        font-size: 18px;
+    }
+
+    .rightText.flex1.favouritesPlan .d-flex.propertyTitle {
+        display: block !important;
+    }
+
+    .propertyList ul li.listingBlock2 {
+        padding-bottom: 16px;
+    }
+
+    .listingBlockLine .ml-40 {
+        margin-left: 10px !important;
+    }
+
+    .tab-pane ul li .favouritesPlan a {
+        margin-top: 5px;
+    }
+
+
+
+
+
+
+
+
+
+
+    .bottomFooter span.checkBtnModall {
+        padding: 12px 7px;
+    }
+
+    .getAlerted,
+    .getAlerted:hover {
+        padding: 7px 15px;
+        min-width: auto;
+    }
+
+    /* .responsiveMargintopTitle{
+        margin-top: 20px;
+    } */
+    .fairmarketRent .fairMarketTitle.d-flex {
+        display: block !important;
+        width: 100%;
+    }
+
+    .rewards button.smallResponsiveBtn {
+        padding: 4px 12px;
+        font-size: 15px;
+        margin-top: 8px;
+    }
+
+    /* .navbar-brand img{
+        width: 160px;
+    } */
+    .react-multiple-carousel__arrow--left {
+        left: 20px !important;
+    }
+
+    .react-multiple-carousel__arrow--right {
+        right: 20px !important;
+    }
+
+    .popularCities .react-multiple-carousel__arrow--right {
+        right: 30px !important;
+    }
+
+    .popularCitySliderText {
+        margin-bottom: 20px;
+    }
+
+    .tab-pane ul .brdrRadius4 {
+        margin-bottom: 10px;
+    }
+
+    .nav-tabs.savedPropertyTab li a {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .secPad16.savedProperty.pb-0 .lineBtnCalling {
+        display: block;
+    }
+
+
+
+
+    /* .secPad.reaserchApartment{
+        padding: 0px 0px 0px !important;
+    } */
+    .interner-syndiction {
+        margin-top: 50px;
+        overflow: hidden;
+    }
+
+    .secPad.proudPartners {
+        padding: 0px 0px 0px;
+    }
+
+    .have-any-section {
+        margin-top: 50px;
+    }
+
+    /* .sidenavBlock li {
+        font-size: 14px !important;
+      } */
+
+
+
+    /* .map-fixed{
+        display: none;
+    } */
+    .blogclass .blog-post {
+        display: block;
+    }
+
+    .blogclass .utf-blog-post-content {
+        padding: 15px 15px;
+    }
+
+    .blogclass .utf-blog-post-thumbnail {
+        width: 100%;
+    }
+
+    .blogclass .utf-blog-post-thumbnail-inner .listing-left .bg-image {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (min-width: 365px) and (max-width: 991px) {
+    .cst {
+        width: 100%;
+    }
+
+    .listting-search-left {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 376px) {
+    .itemWebsite1 {
+        display: block;
+    }
+
+    .itemMobile1 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    .itemWebsite1 {
+        display: none;
+    }
+
+    .itemMobile1 {
+        display: block;
+    }
+
+    .bannerSection1 {
+        display: none;
+    }
+
+    .bannerMobileSection1 {
+        display: block;
+        position: relative;
+    }
+}
+
+/*--new final responsive set--*/
+@media only screen and (min-width: 280px) and (max-width: 321px) {
+    .propertydetail-page {
+        margin-bottom: 0;
+    }
+
+    .availBodyBlock.propertyDetlModal {
+        padding: 0px 15px 24px !important;
+    }
+
+    .topHeadSec ul {
+        display: flex;
+    }
+
+    .headingList {
+        font-size: 12px;
+    }
+
+    .paddingTop0 {
+        padding-top: 0;
+    }
+
+    .paddingBottom0 {
+        padding-bottom: 0px;
+    }
+
+    .agencyStateList ul li.listState {
+        padding: 8px;
+    }
+
+    .agencyStateListRight .lineBtnMobile {
+        padding: 8px 8px;
+        font-size: 10px;
+    }
+
+    .agencyStateListRight .checkAvailBtnSmall,
+    .agencyStateListRight .checkAvailBtnSmall:hover {
+        padding: 8px 8px;
+        height: 35.6px;
+        line-height: 22px;
+        font-size: 10px !important;
+    }
+
+    .housingNearby .sliderTextArea {
+        height: 180px;
+    }
+
+    .sliderTagName {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 374.99px) {
+    .listTop12 .w-50 {
+        margin-right: 6px;
+    }
+
+    .availSec button {
+        display: inline-block;
+        padding: 13px 35px;
+    }
+
+    .availBodyBlock .responsive15 {
+        padding: 0;
+    }
+
+    .availBodyBlock {
+        padding: 16px 16px 24px !important;
+    }
+
+    .lineBtnMobile {
+        font-size: 12px;
+        padding: 8px 8px;
+    }
+
+    .availbity.fontSize16.font-weight700.checkAvailFont14 span {
+        font-size: 12px;
+        padding: 8px 8px;
+        height: 35.6px;
+    }
+
+    .agencyStateList ul li.listState {
+        padding: 10px;
+    }
+
+    .bannerSectionText.bannerMobileText1 {
+        top: 80px;
+    }
+
+    .navbar-brand img {
+        max-width: 170px;
+    }
+
+    .listting-search-left .cst {
+        width: 100%;
+    }
+
+    .pagination ul li.paginationNum {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+    }
+
+    .propertyList.propertyListScroll {
+        overflow-y: clip !important;
+    }
+
+    .agencyLandingLeftSec .searchHousingBox {
+        margin: 12px -15px;
+        border-radius: 0px;
+    }
+
+    .rightagencyBlock {
+        padding: 8px;
+    }
+
+    .agencyLandingLeftSec .moreInfoBtn {
+        padding: 2px 10px;
+        font-size: 14px !important;
+    }
+
+    .agencyLandingLeftSec .bottomInfo {
+        margin-top: 10px !important;
+    }
+
+    .agencyLandingLeftSec .margin24 {
+        margin: 15px -15px;
+    }
+
+    .agencyLandingLeftSec .alertBox {
+        background-color: rgba(27, 196, 125, 0.05);
+        padding: 24px 15px;
+    }
+
+    .agencyLandingLeftSec .housingAuthority {
+        padding: 15px;
+        margin-bottom: 18px;
+    }
+
+    .maxWidth260 {
+        max-width: 212px;
+    }
+
+    .sideActionIcon li {
+        width: 25px;
+        height: 25px;
+        line-height: 23px;
+    }
+
+    .topHeadSec ul li {
+        font-size: 13px;
+    }
+
+    .floorplanList li:first-child {
+        padding: 8px;
+    }
+
+    .newBoxBottom {
+        padding: 10px 16px;
+    }
+
+    /* .lineBlueBtn a {
+        padding: 6px 35px !important;
+    } */
+
+    /* .emailFillBtn a {
+        padding: 6px 35px;
+        height: auto;
+    } */
+
+    .checkAvailability.newBoxBottom .d-flex.align-items-center.responsive15.flex-wrap.p-0 {
+        justify-content: center;
+    }
+
+    .ReactModal__Overlay.ReactModal__Overlay--after-open {
+        display: block;
+    }
+
+    .amenitiesListing .pupleLineBtn {
+        margin: 24px 0px 0;
+    }
+
+    .topHeadSec {
+        margin-top: 0px;
+    }
+
+    .alertBox.alertMedia {
+        margin: 0 -15px 15px;
+    }
+
+    .localAdd {
+        padding: 0px 0 0;
+    }
+
+    .agencystate-page .searchHousingBox {
+        margin: 0 -15px;
+    }
+
+    .searchInputBlock button {
+        min-width: 75px;
+    }
+
+    .skyBlueResponisveBtn {
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+
+    .apgencydetail-page .detailRightSec .titleHeading {
+        padding: 24px 0;
+    }
+
+    .alertBox {
+        padding: 15px;
+    }
+
+    .tableBox {
+        margin-bottom: 16px;
+    }
+
+    .agencyLandingLeftSec .alertBox.alertMedia {
+        margin-top: 16px;
+    }
+
+    .nav-tabs.savedPropertyTab li a {
+        font-size: 13px;
+    }
+
+    .nav-tabs.savedPropertyTab .nav-item {
+        margin-bottom: 0px;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    .lineBlueBtn a {
+        padding: 10px 40px !important;
+    }
+
+    .emailFillBtn a {
+        padding: 10px 40px;
+        height: auto;
+    }
+}
+
+/* @media only screen and (min-width:374) and (max-width:376px) {
+    .lineBlueBtn a {
+        padding: 6px 35px !important;
+    }
+} */
+
+@media only screen and (min-width: 375px) and (max-width: 574px) {
+    .agencyLandingLeftSec .searchHousingBox {
+        border-radius: 0;
+        margin: 12px -15px;
+    }
+
+    .agencyLandingLeftSec .alertBox {
+        margin: 24px -15px;
+    }
+
+    .listting-search-left .searchHousingBox {
+        margin: 0 -15px;
+    }
+
+    .apgencydetail-page .detailRightSec .titleHeading {
+        padding: 16px 0;
+    }
+
+    .apgencydetail-page .detailRightSec .alertBox {
+        margin-top: 24px;
+        margin: 24px -15px 24px;
+    }
+
+    .tableBox {
+        margin-bottom: 16px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 575px) {
+    .about_bottm_section .rewards {
+        border: none;
+        padding-bottom: 0px;
+    }
+
+    .rewards.itemMobile {
+        padding-top: 0px;
+    }
+
+    .about_bottm_section .media {
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 575px) and (max-width: 768px) {
+    .map-fixed {
+        display: none;
+    }
+
+    .propertyList.propertyListScroll {
+        padding-top: 91px;
+    }
+
+    .padda .lineBtnCalling {
+        font-size: 12px;
+    }
+
+    .padda .checkAvailableBtn {
+        padding: 8px 6px;
+        font-size: 12px !important;
+    }
+
+    .tab-pane ul .brdrRadius4 {
+        margin-bottom: 10px;
+    }
+
+    .tab-pane ul .brdrRadius4 {
+        margin-bottom: 10px;
+    }
+
+    .propertyList ul li.listingBlock2 {
+        padding-bottom: 16px;
+    }
+
+    .checkAvailableBtn.colorWhite.brdrRadius4 {
+        color: #fff !important;
+        margin-left: 0px;
+    }
+
+    .tableBox {
+        margin-bottom: 16px;
+    }
+
+    .d-flex.align-items-center.padda.responsiveBtnDesign button {
+        margin-left: 5px;
+    }
+
+    .about_bottm_section .rewards {
+        border: none;
+        padding-bottom: 0px;
+    }
+
+    .rewards.itemMobile {
+        padding-top: 0px;
+    }
+
+    .about_bottm_section .media {
+        align-items: center;
+    }
+
+    .bottom-box .checkAvailability {
+        justify-content: center;
+        display: flex;
+    }
+
+    .agencystate-page .propertyListState {
+        padding-top: 221px;
+    }
+
+    .agencyStateList .responsiveJustifyCenter .fontSize16 {
+        font-size: 14px !important;
+    }
+
+    .col-lg-6.col-md-6.col-sm-12.col-xs-12.responsiveMargintopAmen {
+        margin-top: 15px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .agencyLandingLeftSec .alertBox {
+        margin: 24px 0;
+    }
+
+    .detailTextSec .leftTopParaSec {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .navbar .loginBtn {
+        padding: 4px 11px;
+        font-size: 12px;
+    }
+
+    .detailRightSec .checkAvailability h2 {
+        font-size: 16px;
+    }
+
+    .detailRightSec .dealTag {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    .availSec button {
+        font-size: 16px;
+    }
+
+    .alertWidth {
+        max-width: 100%;
+    }
+
+    .listus-section .bannerSectionText h1 {
+        font-size: 29px;
+    }
+
+    .interner-syndiction .textblue.font-weight700.textblue {
+        font-size: 31px;
+    }
+
+    .interner-syndiction p {
+        font-size: 16px;
+        line-height: 30px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 992px) {
+    .propertydetail-page {
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 250px) and (max-width: 281px) {
+    .fontSize24 {
+        font-size: 16px !important;
+    }
+
+    .tableBox {
+        margin-bottom: 16px;
+    }
+
+    .detailListing li span {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .detailListing li span img {
+        width: 15px;
+    }
+
+    .detailListing li p {
+        font-size: 14px;
+    }
+
+    .viewPhoto,
+    .viewPhoto:hover {
+        padding: 8px 14px;
+    }
+
+    .availBodyBlock.propertyDetlModal {
+        padding: 0px 15px 24px !important;
+    }
+
+    .housingNearby .sliderTextArea {
+        height: 175px;
+    }
+
+    .paddingTop0 {
+        padding-top: 0;
+    }
+
+    .paddingBottom0 {
+        padding-bottom: 0px;
+    }
+
+    .propertydetail-page {
+        margin-bottom: auto;
+    }
+
+    .cst {
+        width: 100%;
+    }
+
+    .apgencydetail-page .detailRightSec .titleHeading {
+        padding: 24px 0;
+    }
+
+    .topHeadSec ul {
+        display: flex;
+    }
+
+    .agencyLandingLeftSec .moreInfoBtn {
+        padding: 2px 10px;
+        font-size: 14px !important;
+    }
+
+    .skyBlueResponisveBtn {
+        padding: 8px 5px;
+        font-size: 11px;
+    }
+
+    .skyBlueResponisveBtn {
+        padding: 8px 5px;
+        font-size: 11px;
+    }
+
+    .checkAvailability.newBoxBottom .d-flex.align-items-center.responsive15.flex-wrap.p-0 {
+        justify-content: center;
+    }
+
+    /* .emailFillBtn a {
+        padding: 6px 35px;
+        height: auto;
+    } */
+
+    /* .lineBlueBtn a {
+        padding: 6px 35px !important;
+    } */
+
+    .newBoxBottom {
+        padding: 8px 14px;
+    }
+
+    .middleSection .dealTag {
+        font-size: 12px;
+    }
+
+    .topHeadSec {
+        margin-top: 0px;
+    }
+
+    .twentyfourbytwentyfour {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .headingList {
+        margin-left: 9px;
+        font-size: 12px;
+    }
+
+    .floorplanList li.floorPlanListing {
+        padding: 10px;
+    }
+
+    .navbar-brand img {
+        max-width: 150px;
+    }
+
+    .bannerSectionText.bannerMobileText1 {
+        top: 50px;
+    }
+
+    .availSec button {
+        display: inline-block;
+        padding: 13px 14px;
+    }
+
+    .availBodyBlock .responsive15 {
+        padding: 0;
+    }
+
+    .availBodyBlock {
+        padding: 16px 16px 24px !important;
+    }
+
+    .ReactModal__Overlay.ReactModal__Overlay--after-open {
+        display: block;
+    }
+
+    .agencyStateList ul li.listState {
+        padding: 8px;
+    }
+
+    .agencyStateListRight .lineBtnMobile {
+        padding: 8px 8px;
+        font-size: 10px;
+    }
+
+    .agencyStateListRight .checkAvailBtnSmall,
+    .agencyStateListRight .checkAvailBtnSmall:hover {
+        padding: 8px 8px;
+        height: 35.6px;
+        line-height: 22px;
+        font-size: 10px !important;
+    }
+
+    .modal-header .ml-22 {
+        margin-left: 0px;
+    }
+}

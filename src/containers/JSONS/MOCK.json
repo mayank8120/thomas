@@ -1,0 +1,37 @@
+[
+    {
+        "city_name": "Holtsville",
+        "county_name": "Suffolk County",
+        "id": 1,
+        "state_abbr": "NY",
+        "zip_code": "00501"
+    },
+    {
+        "city_name": "Holtsville",
+        "county_name": "Suffolk County",
+        "id": 2,
+        "state_abbr": "NY",
+        "zip_code": "00544"
+    },
+    {
+        "city_name": "Agawam",
+        "county_name": "Hampden County",
+        "id": 3,
+        "state_abbr": "MA",
+        "zip_code": "01001"
+    },
+    {
+        "city_name": "Amherst",
+        "county_name": "Hampshire County",
+        "id": 4,
+        "state_abbr": "MA",
+        "zip_code": "01002"
+    },
+    {
+        "city_name": "Amherst",
+        "county_name": "Hampshire County",
+        "id": 5,
+        "state_abbr": "MA",
+        "zip_code": "01003"
+    }
+]

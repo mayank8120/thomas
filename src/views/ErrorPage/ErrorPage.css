@@ -1,0 +1,14 @@
+.errorPage {
+	margin-top: 54px;
+}
+.errorBanner {
+	background: #F4FAFF;
+	padding: 46px 0 40px;
+}
+.errorBanner h3{
+    margin-top: 30px;
+    color: #16193a;
+}
+.errorList{
+    padding: 40px 0;
+}

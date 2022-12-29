@@ -1,0 +1,82 @@
+.scrollbar-1 {
+	$scrollbar-1-thumb-width: 8px;
+	$scrollbar-1-thumb-color: #ff7f00;
+	$scrollbar-1-track-color: #b0b7c4;
+	
+    // Chrome & Opera
+    &::-webkit-scrollbar {
+       width: $scrollbar-1-thumb-width;
+		 height: $scrollbar-1-thumb-width;
+
+       &-track {
+           background-clip: content-box;
+           border: ($scrollbar-1-thumb-width/4) solid transparent;
+       }
+
+       &-thumb {
+           background-color: $scrollbar-1-thumb-color;
+			 
+			 &:hover {
+				 background-color: mix($scrollbar-1-thumb-color, #000, 90%);
+			 }
+       }
+		 &-corner,
+		 &-track {
+			 background-color: $scrollbar-1-track-color;
+		 }
+    }
+
+    // Firefox
+    scrollbar-width: thin;
+    scrollbar-color: $scrollbar-1-thumb-color $scrollbar-1-track-color;
+}
+
+.scrollbar-2 {
+	$scrollbar-2-thumb-width: 10px;
+	$scrollbar-2-thumb-color: #008aff;
+	$scrollbar-2-track-color: #bbb;
+	
+    // Chrome & Opera
+    &::-webkit-scrollbar {
+       width: $scrollbar-2-thumb-width;
+		 height: $scrollbar-2-thumb-width;
+
+       &-track {
+           background-color: $scrollbar-2-track-color;
+       }
+
+       &-thumb {
+          background-color: $scrollbar-2-thumb-color;
+       }
+		 
+		 &-track,
+		 &-thumb {
+			 border-radius: 12px;
+		 }
+    }
+
+    // Firefox
+    scrollbar-width: thin;
+    scrollbar-color: $scrollbar-2-thumb-color $scrollbar-2-track-color;
+}
+
+
+
+/* The below styles are for display purposes only */
+
+body {
+	overflow-x: hidden;
+	font-family: Verdana, sans-serif;
+}
+
+[class^="scrollbar"] {
+	height: 200px;
+	overflow-y: scroll;
+	
+	div {
+		height: 400px;
+		width: 200%;
+		padding: 4rem;
+		background-image: linear-gradient(130deg, rgb(200, 200, 200) 0%, rgb(254, 254, 254) 100%);
+	}
+}
