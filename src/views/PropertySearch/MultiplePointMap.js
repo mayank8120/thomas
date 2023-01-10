@@ -263,7 +263,7 @@ const MultiplePointMap = () => {
                                                 :
                                                 <MapContainer center={
                                                     [(parseFloat(lowerlat) + parseFloat(upperlat)) / 2, (parseFloat(lowerlng) + parseFloat(upperlng)) / 2]
-                                                } zoom={12} scrollWheelZoom={true}>
+                                                } zoom={11} scrollWheelZoom={true}>
                                                     <TileLayer
                                                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                                                         url={streetmap} />
