@@ -7,6 +7,7 @@ import { useHistory } from "react-router";
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel'
 import History from '../../containers/History';
+import { capitaliseFirstLetterOfWord } from '../../containers/functions';
 // import SliderThumbnail from '../../containers/SliderThumbnail';
 
 // import { SliderThumbnail } from '../../containers/SliderThumbnail';
@@ -359,7 +360,7 @@ const Banner = ({ latlngdata }) => {
                                                                 </p>
                                                                 <p className='secondaryColor w-100 d-block'>
                                                                     <span className='secondaryColor w-100 d-block'>
-                                                                        No Cities Found with <b className='font-weight999' >{searchterm}</b> name
+                                                                        No Cities Found with <b className='font-weight999' >{capitaliseFirstLetterOfWord(searchterm)}</b> name
                                                                     </span>
                                                                 </p>
                                                             </>
@@ -555,7 +556,7 @@ const Banner = ({ latlngdata }) => {
                                                                 </p>
                                                                 <p className='secondaryColor w-100 d-block'>
                                                                     <span className='secondaryColor w-100 d-block'>
-                                                                        No Cities Found with <b className='font-weight999' >{searchterm}</b> name
+                                                                        No Cities Found with <b className='font-weight999' >{capitaliseFirstLetterOfWord(searchterm)}</b> name
                                                                     </span>
                                                                 </p>
                                                             </>

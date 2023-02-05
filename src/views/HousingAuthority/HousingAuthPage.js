@@ -18,7 +18,7 @@ import RentalAssistance from '../../containers/RentalAssistance'
 import Fbpage from '../fbpage/Fbpage.js';
 import GoogleADS from '../../containers/GoogleADS';
 import { Helmet } from 'react-helmet';
-import { addDash } from '../../containers/functions';
+import { addDash, capitaliseFirstLetterOfWord } from '../../containers/functions';
 
 const HousingAuthPage = () => {
     document.title = "Housing Authority - Rental Housing Deals"
@@ -294,7 +294,7 @@ const HousingAuthPage = () => {
                                                                     >
                                                                         <Link className='secondaryColor w-100 d-block' to={null}>
 
-                                                                            No Cities Found with {searchterm} name
+                                                                            No Cities Found with {capitaliseFirstLetterOfWord(searchterm)} name
                                                                         </Link>
 
                                                                     </p>

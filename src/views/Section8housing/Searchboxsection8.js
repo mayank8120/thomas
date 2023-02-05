@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useHistory } from "react-router";
 
 import JSONDATA from '../../containers/JSONS/MOCK.json'
-import { isItNull } from '../../containers/functions';
+import { capitaliseFirstLetterOfWord, isItNull } from '../../containers/functions';
 
 const Searchboxsection8 = ({ latlngdata }) => {
 
@@ -242,7 +242,7 @@ const Searchboxsection8 = ({ latlngdata }) => {
                                                                 </p>
                                                                 <p className='secondaryColor w-100 d-block'>
                                                                     <span className='secondaryColor w-100 d-block'>
-                                                                        No Cities Found with <b className='font-weight999' >{searchterm}</b> name
+                                                                        No Cities Found with <b className='font-weight999' >{capitaliseFirstLetterOfWord(searchterm)}</b> name
                                                                     </span>
                                                                 </p>
                                                             </>
@@ -427,7 +427,7 @@ const Searchboxsection8 = ({ latlngdata }) => {
                                                                 </p>
                                                                 <p className='secondaryColor w-100 d-block'>
                                                                     <span className='secondaryColor w-100 d-block'>
-                                                                        No Cities Found with <b className='font-weight999' >{searchterm}</b> name
+                                                                        No Cities Found with <b className='font-weight999' >{capitaliseFirstLetterOfWord(searchterm)}</b> name
                                                                     </span>
                                                                 </p>
                                                             </>

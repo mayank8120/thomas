@@ -237,7 +237,7 @@ const PropertyDetailPage = ({ post }) => {
 
 
 
-
+	// newModalFormDataQualifyNow, setnewModalFormDataQualifyNow
 
 	const [isOpenQualify, setIsOpenQualify] = useState(false);
 	function toggleModalQualify() {

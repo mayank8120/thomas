@@ -219,7 +219,7 @@ const SearchSection = ({ latlngdata }) => {
                                                         setsearchterm(() => '');
                                                     }}>
 
-                                                    No Cities Found with {searchterm} name
+                                                    No Cities Found with {capitaliseFirstLetterOfWord(searchterm)} name
                                                 </Link>
 
                                             </p>

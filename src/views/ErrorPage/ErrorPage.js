@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import './ErrorPage.css';
 import Footer from '../../containers/Footer';
 import { errorPageCItyList } from '../../constants/arraysLists';
+import { capitaliseFirstLetterOfWord } from '../../containers/functions';
 
 
 
@@ -320,7 +321,7 @@ const ErrorPage = () => {
                                                                 </p>
                                                                 <p className='secondaryColor w-100 d-block'>
                                                                     <span className='secondaryColor w-100 d-block'>
-                                                                        No Cities Found with <b className='font-weight999' >{searchterm}</b> name
+                                                                        No Cities Found with <b className='font-weight999' >{capitaliseFirstLetterOfWord(searchterm)}</b> name
                                                                     </span>
                                                                 </p>
                                                             </>

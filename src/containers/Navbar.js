@@ -26,6 +26,7 @@ import Modal from "react-modal";
 
 
 import { Link, useLocation } from 'react-router-dom';
+import { capitaliseFirstLetterOfWord } from './functions'
 
 
 const Navbar = () => {
@@ -712,7 +713,7 @@ const Navbar = () => {
                                                                     </p>
                                                                     <p>
                                                                         <Link className='secondaryColor w-100 d-block' to={null}>
-                                                                            No Cities Found with {searchterm} name
+                                                                            No Cities Found with {capitaliseFirstLetterOfWord(searchterm)} name
                                                                         </Link>
 
                                                                     </p>

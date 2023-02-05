@@ -26,15 +26,34 @@ import { addDash, addOrRemoveHA, getAllHA, isItNull, replaceSpace, toggleHeartHA
 import GoogleADS from '../../containers/GoogleADS'
 import { Helmet } from 'react-helmet'
 import { captchaSecretKey, captchaSiteKey } from '../../constants/constants'
+import { numberofoccupants } from '../../constants/arraysLists'
 
 const AgencyDetail = () => {
 
 
+    const [newModalFormDataQualifyNow, setnewModalFormDataQualifyNow] = useState(
+        {
+            email_address: "",
+            first_name: "",
+            last_name: "",
+            address: "",
+            city: "",
+            state: "",
+            zip: "",
+            occupants: '',
+            monthlyIncome: "",
+            voucher: "",
+            move_date: "",
+            phone: "",
+            property_id: ""
+        }
+    )
 
 
-
-
-
+    const [isOpenQualify, setIsOpenQualify] = useState(false);
+    function toggleModalQualify() {
+        setIsOpenQualify(!isOpenQualify);
+    }
 
     const [colorCHangeheart, setcolorCHangeheart] = useState();
 
@@ -195,6 +214,13 @@ const AgencyDetail = () => {
 
     //     return date1;
     // }
+
+
+    const handleSubmitNewModalQualifyNow = (e) => {
+        e.preventDefault();
+        startCaptchaProcessForNewModal();
+        // console.log(newModalFormDataQualifyNow, "HII");
+    }
 
     let dateconvert = (date) => {
         return new Date(date);
@@ -462,7 +488,17 @@ const AgencyDetail = () => {
             .then(result => {
                 if (result.status == "Success") {
                     // console.log(result, "RSULT 2");
-                    setformdatamodal({ property_id: "", first_name: '', last_name: '', phone: '', email_address: '', move_date: '', message: `${formdatamodal.message}` });
+                    setformdatamodal(
+                        {
+                            property_id: "",
+                            first_name: '',
+                            last_name: '',
+                            phone: '',
+                            email_address: '',
+                            move_date: '',
+                            message: `${formdatamodal.message}`
+                        }
+                    );
 
                     toggleModalContact();
                     toggleModalThankYou();
@@ -473,6 +509,109 @@ const AgencyDetail = () => {
 
     }
 
+
+    function submitAllDataNewModal() {
+
+
+        let formatDate = (date) => {
+
+            let newdate = new Date(date);
+            let day = newdate.getDate();
+            let month = newdate.getMonth() + 1;
+            let year = newdate.getFullYear();
+
+            return `${day}/${month}/${year}`
+
+            // return date.replace(/-/g, '/');
+        }
+
+
+        let data = JSON.stringify(
+
+            {
+                email_address: newModalFormDataQualifyNow.email_address,
+                first_name: newModalFormDataQualifyNow.first_name,
+                last_name: newModalFormDataQualifyNow.last_name,
+                address: newModalFormDataQualifyNow.address,
+                city: newModalFormDataQualifyNow.city,
+                state: newModalFormDataQualifyNow.state,
+                zip: newModalFormDataQualifyNow.zip,
+                occupants: newModalFormDataQualifyNow.occupants,
+                monthlyIncome: newModalFormDataQualifyNow.monthlyIncome,
+                voucher: newModalFormDataQualifyNow.voucher,
+                move_date: formatDate(newModalFormDataQualifyNow.move_date),
+                phone: newModalFormDataQualifyNow.phone,
+                property_id: agendetail.id
+            }
+
+
+
+            // {
+            //     "property_id": agendetail.id,
+            //     "first_name": formdatamodal.first_name,
+            //     "last_name": formdatamodal.last_name,
+            //     "email_address": formdatamodal.email_address,
+            //     "phone": formdatamodal.phone,
+            //     "message": formdatamodal.message,
+            //     "move_date": formatDate(formdatamodal.move_date)
+            // }
+        );
+
+        // console.log(data);
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/text");
+
+        var raw = JSON.stringify({
+            "property_id": "142",
+            "first_name": "john",
+            "last_name": "doe",
+            "email_address": "vinaxeh500@zneep.com",
+            "phone": "8874565211",
+            "message": "test msg",
+            "move_date": "27/02/2022"
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            body: data,
+            redirect: 'follow',
+        };
+
+
+        // DONT CHANGE THIS ONE 
+
+        fetch("https://thomasthecat.rentalhousingdeals.com/apis/v1/api/v1/Checkavailabilityhanew", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                if (result.status == "Success") {
+                    console.log(result, "RSULT 2");
+                    setnewModalFormDataQualifyNow(
+                        {
+                            email_address: "",
+                            first_name: "",
+                            last_name: "",
+                            address: "",
+                            city: "",
+                            state: "",
+                            zip: "",
+                            occupants: '',
+                            monthlyIncome: "",
+                            voucher: "",
+                            move_date: "",
+                            phone: "",
+                            property_id: ""
+                        }
+                    );
+
+                    toggleModalQualify();
+                    toggleModalThankYou();
+                }
+            }
+            )
+            .catch(error => console.log('error', error));
+
+    }
 
 
 
@@ -485,12 +624,29 @@ const AgencyDetail = () => {
             document.body.appendChild(script);
         }
     }
+
+
+    const startCaptchaProcessForNewModal = () => {
+        if (!isItNull(newModalFormDataQualifyNow.move_date)) {
+            // console.log("token startcaptchaprocess");
+            const script = document.createElement("script");
+            script.src = `https://www.google.com/recaptcha/api.js?render=${captchaSiteKey}`;
+            script.addEventListener('load', loadCaptchaNewModal);
+            document.body.appendChild(script);
+        }
+
+        // submitAllDataNewModal();
+        // loadCaptchaNewModal();
+    }
+
+
+
     const startCaptchaProcessModal = () => {
         if (!isItNull(formdatamodal.move_date)) {
             // console.log("token startcaptchaprocess");
             const script = document.createElement("script");
             script.src = `https://www.google.com/recaptcha/api.js?render=${captchaSiteKey}`;
-            script.addEventListener('load', loadCaptchaModal);
+            script.addEventListener('load', loadCaptchaNewModal);
             document.body.appendChild(script);
         }
     }
@@ -617,6 +773,63 @@ const AgencyDetail = () => {
         });
     }
 
+
+
+    const loadCaptchaNewModal = () => {
+        // console.log("token Enter loadcaptcha");
+        window.grecaptcha.ready(_ => {
+            window.grecaptcha
+                .execute(captchaSiteKey, { action: 'sdrefs' })
+                .then(token => {
+                    // console.log(token, "token");
+
+                    if (!isItNull(token)) {
+                        var axios = require('axios');
+                        var data = '';
+
+                        var config = {
+                            method: 'post',
+                            url: `https://thomasthecat.rentalhousingdeals.com/apis/v1/api/v1/verifyCaptcha?secret=${captchaSecretKey}&response1=${token}`,
+                            headers: {},
+                            data: data
+                        };
+
+                        axios(config)
+                            .then(function (response) {
+                                if (response.data.success === true) {
+                                    // console.log("Captcha Success");
+                                    setcaptchaValue(true);
+
+
+                                    submitAllDataNewModal();
+                                    // toggleModalContact();
+                                    // toggleModalThankYou();
+                                    // fetchAfterCheckPropList();
+
+
+
+                                    // toggleModalAvailability();
+                                    // toggleModalSecondList();
+                                    // submitAllData();
+
+                                    // toggleModalThankYou();
+                                    // setformdata({ property_id: propid, first_name: '', last_name: '', phone: '', email_address: '', move_date: '', message: message });
+
+                                    // submitAllData();
+                                } else {
+                                    console.log("Captcha failed");
+                                    setcaptchaValue(false);
+                                }
+                                // console.log(response.data.success, "token11");
+                            })
+                            .catch(function (error) {
+                                console.log("Captcha error");
+                                console.log(error);
+                            });
+                    }
+                })
+        });
+    }
 
 
 
@@ -761,6 +974,12 @@ const AgencyDetail = () => {
 
 
 
+
+
+
+    let onradioChange = (e) => {
+        setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, voucher: e.target.value });
+    };
 
 
 
@@ -1227,8 +1446,9 @@ const AgencyDetail = () => {
                                                     <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                                         <div className="btnSection mar26 mb-0 itemWebsite">
                                                             <button className="brdrRadius4 w-100 text-center d-flex align-items-center justify-content-center" onClick={() => {
-                                                                toggleModalContact();
-                                                            }}> <img src={require('../../assets/img/qualifyIcon.png').default} />Contact Now</button>
+                                                                // toggleModalContact();
+                                                                toggleModalQualify();
+                                                            }}> <img src={require('../../assets/img/qualifyIcon.png').default} />Qualify Now</button>
 
                                                         </div>
                                                     </div>
@@ -3494,10 +3714,250 @@ const AgencyDetail = () => {
 
 
 
+                        <Modal isOpen={isOpenQualify}
+                            onRequestClose={toggleModalQualify} className="prerental agencydetail-modal modalclassqualify">
+
+                            <div className='modal-content'>
+
+
+                                <div className="modal-header">
+                                    <h5 className="modal-title w-100 text-center font-weight700"
+                                        id="exampleModalLabel">Pre-Rental Qualify</h5>
+                                    <button type="button" className="close"
+                                        aria-label="Close" onClick={toggleModalQualify}>
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+
+                                <div className="modal-body">
+                                    <form onSubmit={handleSubmitNewModalQualifyNow}>
+                                        <div className="row">
+                                            <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12 pr-0">
+                                                <div className="form-group">
+                                                    <label for="exampleInputEmail1">First Name <span
+                                                        className="labelMark">*</span></label>
+                                                    <input type="text" className="form-control" id=""
+                                                        aria-describedby="emailHelp"
+                                                        placeholder="First Name"
+                                                        value={newModalFormDataQualifyNow.first_name} onChange={(e) => setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, first_name: e.target.value })} required />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12 pr-0">
+                                                <div className="form-group">
+                                                    <label for="">Last Name<span
+                                                        className="labelMark">*</span></label>
+                                                    <input type="text" className="form-control"
+                                                        placeholder="Last Name"
+                                                        value={newModalFormDataQualifyNow.last_name} onChange={(e) => setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, last_name: e.target.value })} required />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div className="form-group">
+                                                    <label for="">Email Address <span
+                                                        className="labelMark">*</span></label>
+                                                    <input type="email" className="form-control" id=""
+                                                        aria-describedby="emailHelp"
+                                                        placeholder="Email Address"
+                                                        value={newModalFormDataQualifyNow.email_address} onChange={(e) => setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, email_address: e.target.value })} required />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 pr-0">
+                                                <div className="form-group">
+                                                    <label for="">Phone Number <span
+                                                        className="labelMark">*</span></label>
+                                                    <input type="number" className="form-control" id=""
+                                                        aria-describedby="emailHelp"
+                                                        placeholder="Phone Number"
+                                                        value={newModalFormDataQualifyNow.phone} onChange={(e) => setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, phone: e.target.value })} required />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div className="form-group">
+                                                    <label for="exampleInputEmail1">Address </label>
+                                                    <input type="text" className="form-control" id=""
+                                                        aria-describedby="emailHelp" placeholder="Address"
+                                                        value={newModalFormDataQualifyNow.address} onChange={(e) => setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, address: e.target.value })} required />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 pr-0">
+                                                <div className="form-group">
+                                                    <label for="">City</label>
+                                                    <input type="text" className="form-control" id=""
+                                                        aria-describedby="emailHelp"
+                                                        placeholder="City"
+                                                        value={newModalFormDataQualifyNow.city} onChange={(e) => setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, city: e.target.value })} required />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12 pr-0">
+                                                <div className="form-group">
+                                                    <label
+                                                        for="exampleFormControlSelect1">State</label>
+                                                    <select className="form-control"
+                                                        id="exampleFormControlSelect1"
+                                                        value={newModalFormDataQualifyNow.state} onChange={(e) => setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, state: e.target.value })} required >
+                                                        {statelist.length == 0 ?
+                                                            <option>No states found</option>
+                                                            :
+                                                            statelist.map((val) => {
+                                                                return (
+                                                                    <option>{val.state_abbreviation}</option>
+                                                                );
+                                                            })
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                <div className="form-group">
+                                                    <label for="">ZIP</label>
+                                                    <input type="number" className="form-control"
+                                                        id="" aria-describedby="emailHelp"
+                                                        placeholder="ZIP"
+                                                        value={newModalFormDataQualifyNow.zip} onChange={(e) => setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, zip: e.target.value })} required />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 pr-0">
+                                                <div className="form-group">
+                                                    <label for="">Move-In Date</label>
+                                                    <div className="posRel calnderIcon">
+                                                        <input type="date" className="form-control" id=""
+                                                            aria-describedby="emailHelp"
+                                                            placeholder="Move-In Date"
+                                                            value={newModalFormDataQualifyNow.move_date} onChange={(e) => setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, move_date: e.target.value })} required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12 pr-0">
+                                                <div className="form-group">
+                                                    <label for="">Occupants</label>
+                                                    <select className="form-control"
+                                                        id="exampleFormControlSelect1"
+                                                        value={newModalFormDataQualifyNow.occupants} onChange={(e) => setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, occupants: e.target.value })} required >
+                                                        {
+                                                            numberofoccupants.map((val) => {
+                                                                return (
+                                                                    <option>{val}</option>
+                                                                );
+                                                            })
+                                                        }
+
+                                                    </select>
+
+                                                    {/* <div className="posRel calnderIcon">
+                                                <input type="number"
+                                                    className="form-control" id=""
+                                                    aria-describedby="emailHelp"
+                                                    placeholder="Number of occupants"
+                                                    value={formData.occupants} onChange={(e) => setformData({ ...formData, occupants: e.target.value })} required />
+                                            </div> */}
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                <div className="form-group">
+                                                    <label for="">Monthly Income</label>
+                                                    <input type="number" className="form-control"
+                                                        id="" aria-describedby="emailHelp"
+                                                        placeholder="Income"
+                                                        value={newModalFormDataQualifyNow.monthlyIncome} onChange={(e) => setnewModalFormDataQualifyNow({ ...newModalFormDataQualifyNow, monthlyIncome: e.target.value })} required />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <label>Do you have a voucher?</label>
+                                                <div className="d-flex radioMarginBlock">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="radio"
+                                                            className="form-check-input"
+                                                            value={"Yes"}
+                                                            name="priority"
+                                                            onChange={onradioChange}
+                                                        />
+                                                        <label className="form-check-label">Yes</label>
+                                                    </div>
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="radio"
+                                                            value={"No"}
+                                                            className="form-check-input"
+                                                            name="priority"
+                                                            onChange={onradioChange}
+                                                        />
+                                                        <label className="form-check-label">No</label>
+                                                    </div>
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="radio"
+                                                            value={"On Waiting List"}
+                                                            className="form-check-input"
+                                                            name="priority"
+                                                            onChange={onradioChange}
+                                                        />
+                                                        <label className="form-check-label">On waiting list</label>
+                                                    </div>
+                                                </div>
+
+                                                {/* <button onClick={onClick}> Click Value </button> */}
+                                            </div>
+                                            {/* <p>{radiobutton}</p> */}
+                                        </div>
+                                        <div className="brdrLine"></div>
+                                        <div className="condiBlock form-group">
+                                            <h5 className="fontSize14 font-weight700">Disclaimer/Terms of
+                                                Conditions:</h5>
+
+                                            <p className="secondaryColor fontSize14 mb-0 maxParaScroll">
+                                                This is NOT an application for rental assistance. It is only being forwarded for review by the selected Housing Agency, Management Company or Property Owner who determine eligibility and approval. Receipt of your information does not guarantee acceptance in any rental assistance program, nor will it place you on any waiting list. Further information will be required to determine your eligibility for any Rental Assistance program and approval for a selected unit and you are responsibile for continuing the qualification process.By clicking on the Submit button below, you agree that you have read, understand, and accept these terms and conditions.
+                                            </p>
+                                            {/* <textarea className="form-control"
+                                            id="exampleFormControlTextarea1" rows="3"
+                                            value={formData.disclaimer}
+                                            placeholder="This is NOT an application for rental assistance. It is only being forwarded for review by the selected Housing Agency, Management Company or Property Owner who determine eligibility and approval. Receipt of your information does not guarantee acceptance in any rental assistance program, nor will it place you on any waiting list. Further information will be required to determine your eligibility for any Rental Assistance program and approval for a selected unit and you are responsibile for continuing the qualification process.By clicking on the Submit button below, you agree that you have read, understand, and accept these terms and conditions."></textarea> */}
+
+                                        </div>
+                                        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 pl-0 pr-0">
+                                            <div className="form-group">
+                                                {/* <ReCAPTCHA */}
+                                                {/* <div className="recaptcha_block">
+											<ReCAPTCHA
+												sitekey='6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
+												onChange={captchaHandle} />
+										</div>
+										{
+											captchaValue == false
+												?
+												<span>Please Varify Captcha</span>
+												:
+												null
+
+										} */}
+                                                <div
+                                                    className="g-recaptcha"
+                                                    data-sitekey={'6Ld3X8ggAAAAAAKaJ5gDXpXHyJPQsE83lvQrI9Uh'}
+                                                    data-size="invisible"
+                                                ></div>
+                                                {captchaValue === false ? (
+                                                    <span style={{ color: "red" }}>
+                                                        Our System Found a bot on your browser
+                                                    </span>
+                                                ) : null}
+                                            </div>
+                                        </div>
+                                        <div className="modal-footer brdrNoneTop p-0">
+                                            <button type="submit"
+                                                // onClick={captchacheck}
+                                                className="btn w-100 modalSubmitBtn fontSize16 font-weight500 colorWhite">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </Modal>
 
 
 
-                        <Modal
+                        {/* <Modal
                             isOpen={isOpenContact}
                             onRequestClose={toggleModalContact}
                             className="propertysearch-modal bottomInfo">
@@ -3693,11 +4153,7 @@ const AgencyDetail = () => {
                                                                             onChange={captchaHandle}
                                                                         />
                                                                     </div>
-                                                                    {captchaValue == false ? (
-                                                                        <span style={{ color: "red" }}>
-                                                                            Please Verify Captcha
-                                                                        </span>
-                                                                    ) : null} */}
+                                                                 
                                                                     <div
                                                                         className="g-recaptcha"
                                                                         data-sitekey={'6Ld3X8ggAAAAAAKaJ5gDXpXHyJPQsE83lvQrI9Uh'}
@@ -3739,7 +4195,7 @@ const AgencyDetail = () => {
 
                                 </div>
                             </div>
-                        </Modal>
+                        </Modal> */}
 
 
 
