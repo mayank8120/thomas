@@ -241,10 +241,17 @@ export const PropertySearchItem = ({ post }) => {
         setcheckedStatePropList(updatedcheckedStatePropList);
 
         const arrpets = [];
+        const arrProp = [];
 
         const totalPrice = updatedcheckedStatePropList.reduce(
             (sum, currentState, index) => {
                 if (currentState == true) {
+
+                    let jsons = {
+                        propid: aftercheckPropList[index].id_property,
+                        propname: aftercheckPropList[index].property_details[0].property_title
+                    }
+                    arrProp.push(jsons);
                     arrpets.push(aftercheckPropList[index].id_property);
                     return sum + 1;
                 }
@@ -252,8 +259,8 @@ export const PropertySearchItem = ({ post }) => {
             },
             0
         );
-
-        setpropListArray(arrpets);
+        console.log(arrProp, "IIII");
+        setpropListArray(arrProp);
     };
 
     const [captchaValue, setcaptchaValue] = useState();
@@ -329,7 +336,35 @@ export const PropertySearchItem = ({ post }) => {
         // if (captchaValue == true) {
         // toggleModalAvailability();
         // toggleModalSecondList();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         startCaptchaProcess();
+
+
+        // toggleModalSecondList();
+
+
+
+
+
+
+
+
+
         // submitAllData();
         // setformdata({ property_id: prop.id_property, first_name: '', last_name: '', phone: '', email_address: '', move_date: '', message: '' });
         // }
@@ -434,15 +469,15 @@ export const PropertySearchItem = ({ post }) => {
         if (propListArray.length !== 0) {
 
             propListArray.map(
-                (number) => {
+                (item) => {
                     let data = JSON.stringify(
                         {
-                            "property_id": parseFloat(number),
+                            "property_id": parseFloat(item.propid),
                             "first_name": formdata.first_name,
                             "last_name": formdata.last_name,
                             "email_address": formdata.email_address,
                             "phone": formdata.phone,
-                            "message": formdata.message,
+                            "message": `Hi, I am interested in ${item.propname}. Please send me current availability and any additional information you may have. Thanks!`,
                             "move_date": formatDate(formdata.move_date)
                         }
                     );

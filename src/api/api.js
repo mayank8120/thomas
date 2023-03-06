@@ -28,6 +28,9 @@ export let sendMUltipleRequestes = (data) => {
         redirect: 'follow',
     };
 
+    // console.log(requestOptions,"LLL");
+
+
     fetch("https://thomasthecat.rentalhousingdeals.com/apis/v1/api/v1/checkAvailability", requestOptions)
         .then(response => response.json())
         .then(result => console.log(result))
