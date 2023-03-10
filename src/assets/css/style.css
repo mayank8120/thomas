@@ -11034,3 +11034,9 @@ input[type="radio"]:checked {
   width: 100%;
   display: block !important;
 }
+
+
+.imageSize216px {
+  max-width: 216px;
+  width: 100%;
+}

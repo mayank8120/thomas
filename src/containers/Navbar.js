@@ -564,11 +564,11 @@ const Navbar = () => {
                                     </div>
 
                                     {/* <a className="navbar-brand" href="/">
-                                        <img src={require('../assets/img/logo.svg').default} />
+                                        <img src={require('../assets/img/logoTM.svg').default} />
                                     </a> */}
 
                                     <NavLink exact activeClassName="activeclass" to="/">
-                                        <img src={require('../assets/img/logo.svg').default} />
+                                        <img className='imageSize216px' src={require('../assets/img/logoTM.svg').default} />
                                     </NavLink>
 
                                 </div>
@@ -578,7 +578,7 @@ const Navbar = () => {
 
 
                                 <a className="navbar-brand itemMobile" href="/">
-                                    <img src={require('../assets/img/logo.svg').default} />
+                                    <img className='imageSize216px' src={require('../assets/img/logoTM.svg').default} />
                                 </a>
 
 
