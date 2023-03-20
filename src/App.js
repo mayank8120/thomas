@@ -2,7 +2,7 @@ import './App.css';
 
 import Navbar from './containers/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
+import axios from 'axios';
 
 // import { Scrollbar } from "react-scrollbars-custom";
 // import SimpleBar from 'simplebar-react';
@@ -71,6 +71,25 @@ import DetailPageGreatRd from './views/PropertyDetail/NEWLISTHUBPAGE';
 function App() {
 
 
+
+    useEffect(() => {
+        // var axios = require('axios');
+
+        var config = {
+            method: 'get',
+            url: 'http://52.8.148.148:5200/check',
+            headers: {}
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data), ":HELLO");
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }, [])
 
 
     // const dispatch = useDispatch();
