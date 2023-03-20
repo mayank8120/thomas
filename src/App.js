@@ -75,15 +75,18 @@ function App() {
     useEffect(() => {
         // var axios = require('axios');
 
+
         var config = {
             method: 'get',
             url: 'http://52.8.148.148:5200/check',
-            headers: {}
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
         };
 
         axios(config)
             .then(function (response) {
-                console.log(JSON.stringify(response.data), ":HELLO");
+                console.log(JSON.stringify(response.data), "HELLO");
             })
             .catch(function (error) {
                 console.log(error);
