@@ -13,7 +13,7 @@ import Footer from '../../containers/Footer.js'
 import GoogleADS from '../../containers/GoogleADS'
 import { Helmet } from 'react-helmet'
 import { useParams } from 'react-router-dom'
-import { addDash, capitaliseFirstLetterOfWord } from '../../containers/functions'
+import { addDash, capitaliseFirstLetterOfWord, prerenderApiCall } from '../../containers/functions'
 const AgencyState = () => {
 
     document.title = `Rental Housing Deals`;
@@ -57,6 +57,15 @@ const AgencyState = () => {
         };
         fetchData();
     }, [latlngurl]);
+
+
+
+
+
+    useEffect(() => {
+        prerenderApiCall();
+    }, [])
+
 
 
 

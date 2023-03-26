@@ -1,4 +1,6 @@
 import { captchaSecretKey, captchaSiteKey } from '../constants/constants';
+import axios from 'axios';
+
 
 export let decimalRoundOff = (number) => {
     return Math.floor(number) == Math.round(number) ? Math.floor(number) : number
@@ -540,4 +542,20 @@ export const typeofdetailpage = (str) => {
     } else if (str == 'section8') {
         return "section-8-housing-listing";
     }
+}
+
+
+export const prerenderApiCall = () => {
+    var config = {
+        method: 'get',
+        url: 'https://prerender.rentalhousingdeals.com/check'
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data), "HELLO");
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 }

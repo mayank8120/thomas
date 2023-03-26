@@ -19,7 +19,7 @@ import { default as ReactSelect } from "react-select";
 import makeAnimated from "react-select/animated";
 
 import MySelect from "./MySelect.js";
-import { capitaliseFirstLetterOfWord, elementSearchInArray, findHighestCountCity, isItCityVISE, isItNull, isObjectEmpty } from '../../containers/functions';
+import { capitaliseFirstLetterOfWord, elementSearchInArray, findHighestCountCity, isItCityVISE, isItNull, isObjectEmpty, prerenderApiCall } from '../../containers/functions';
 import { useDispatch, useSelector } from 'react-redux';
 import { func, number } from 'prop-types';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
@@ -95,6 +95,16 @@ const PropertySearch = () => {
     const [city, setcity] = useState("");
     const [statename, setstatename] = useState("");
     const [featureParameter, setfeatureParameter] = useState("");
+
+
+
+
+
+    useEffect(() => {
+        prerenderApiCall();
+    }, [])
+
+
 
 
     let featureName = localStorage.getItem("featureName");

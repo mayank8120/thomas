@@ -21,6 +21,7 @@ import PropertyDetailPage from './PropertyDetailPage';
 import Loader from '../../containers/Loader';
 import Footer from '../../containers/Footer';
 import { useParams } from 'react-router-dom';
+import { prerenderApiCall } from '../../containers/functions';
 
 
 const PropertyDetail = ({ location }) => {
@@ -55,6 +56,13 @@ const PropertyDetail = ({ location }) => {
 
 
 
+    useEffect(() => {
+        prerenderApiCall();
+    }, [])
+
+
+
+
     // let params = new URLSearchParams(window.location.search);
 
     // useEffect(() => {
@@ -63,7 +71,7 @@ const PropertyDetail = ({ location }) => {
     // }, [params]);
 
 
-    
+
 
 
 

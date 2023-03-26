@@ -11,6 +11,7 @@ import Footer from '../../containers/Footer'
 import axios from 'axios';
 import GoogleADS from '../../containers/GoogleADS'
 import { Helmet } from 'react-helmet'
+import { prerenderApiCall } from '../../containers/functions'
 
 const Section8housing = () => {
 
@@ -30,6 +31,14 @@ const Section8housing = () => {
         };
         fetchData();
     }, [latlngurl]);
+
+
+
+    useEffect(() => {
+        prerenderApiCall();
+    }, [])
+
+
 
 
     let nearbypropurl;

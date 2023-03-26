@@ -59,6 +59,7 @@ import { getPropListAccordingToMap } from './actions';
 import PropertySearchFullMap from './views/PropertySearchFULLMAP/PropertySearchFullMap';
 import Trial from './views/Trial/trial';
 import DetailPageGreatRd from './views/PropertyDetail/NEWLISTHUBPAGE';
+import { prerenderApiCall } from './containers/functions';
 
 
 
@@ -73,22 +74,7 @@ function App() {
 
 
     useEffect(() => {
-        // var axios = require('axios');
-
-
-        var config = {
-            method: 'get',
-            url: 'https://prerender.rentalhousingdeals.com/check'
-        };
-
-        axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data), "HELLO");
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
+        prerenderApiCall();
     }, [])
 
 

@@ -22,13 +22,24 @@ import HousingAuthorityforGeneral from '../PropertyDetail/HousingAuthorityforGen
 import SinglePointMap from '../../containers/SinglePointMap';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { Link, useParams } from 'react-router-dom';
-import { addDash, addOrRemoveHA, getAllHA, isItNull, replaceSpace, toggleHeartHA } from '../../containers/functions';
+import { addDash, addOrRemoveHA, getAllHA, isItNull, prerenderApiCall, replaceSpace, toggleHeartHA } from '../../containers/functions';
 import GoogleADS from '../../containers/GoogleADS'
 import { Helmet } from 'react-helmet'
 import { captchaSecretKey, captchaSiteKey } from '../../constants/constants'
 import { numberofoccupants } from '../../constants/arraysLists'
 
 const AgencyDetail = () => {
+
+
+
+
+
+    useEffect(() => {
+        prerenderApiCall();
+    }, [])
+
+
+
 
 
     const [newModalFormDataQualifyNow, setnewModalFormDataQualifyNow] = useState(

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Footer from '../../containers/Footer'
 import AffordabilityCal from '../AgencyDetail/AffordabilityCal'
 import { CityCountyQuickFacts } from '../AgencyDetail/CityCountyQuickFacts'
@@ -7,9 +7,19 @@ import RentalAssistance from '../../containers/RentalAssistance'
 import Fbpage from '../fbpage/Fbpage'
 import GoogleADS from '../../containers/GoogleADS'
 import { Helmet } from 'react-helmet'
+import { prerenderApiCall } from '../../containers/functions'
 
 const IncomeLimits = () => {
     document.title = "Income Limits - Rental Housing Deals";
+
+
+
+
+    useEffect(() => {
+        prerenderApiCall();
+    }, [])
+
+
 
     const adsHeadScript = `var ezstandalone = ezstandalone || { };
     ezstandalone.cmd = ezstandalone.cmd || [];
