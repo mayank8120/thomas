@@ -78,10 +78,7 @@ function App() {
 
         var config = {
             method: 'get',
-            url: 'http://52.8.148.148:5200/check',
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
+            url: 'https://prerender.rentalhousingdeals.com/check'
         };
 
         axios(config)
