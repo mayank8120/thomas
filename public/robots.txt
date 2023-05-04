@@ -1,3 +1,63 @@
-# https://www.robotstxt.org/robotstxt.html
+Allow: /
+    
+Allow: /senior-housing
+    
+Allow: /section-8-housing
+    
+Allow: /income-limits
+    
+Allow: /housing-authority-waitlists
+    
+Allow: /savedProperties
+    
+Allow: /public-housing
+    
+Allow: /basic-info-page
+    
+Allow: /about
+    
+Allow: /terms
+      
+Allow: /privacy
+      
+Allow: /equal-opportunity-housing
+      
+Allow: /income-based-housing-faq
+      
+Allow: /disclaimer
+      
+Allow: /housing-choice-voucher
+      
+Allow: /low-income-housing-choice
+      
+Allow: /rural-development-rental-assistance
+      
+Allow: /enterprise-income-verification
+      
+Allow: /a-good-place-to-live
+      
+Allow: /fair-market-rents
+        
+Allow: /sitemap
+        
+Allow: /inspections
+        
+Allow: /payment-standards
+        
+Allow: /contact
+        
+Allow: /advertise-with-us
+
+Allow: /housing-authority-waiting-lists/*
+
+Allow: /apartments-for-rent/*/*
+
+Allow: /affordable-apartments-for-rent/*
+
+Allow: /senior-housing-for-rent/*
+
+Allow: /section-8-housing-for-rent/*
+
+
 User-agent: *
 Disallow:
