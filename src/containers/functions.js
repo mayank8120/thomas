@@ -553,7 +553,8 @@ export const prerenderApiCall = () => {
 
     axios(config)
         .then(function (response) {
-            console.log(JSON.stringify(response.data), "HELLO");
+            // console.log(JSON.stringify(response.data), "HELLO");
+
         })
         .catch(function (error) {
             console.log(error);

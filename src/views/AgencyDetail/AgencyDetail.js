@@ -596,7 +596,7 @@ const AgencyDetail = () => {
             .then(response => response.json())
             .then(result => {
                 if (result.status == "Success") {
-                    console.log(result, "RSULT 2");
+                    // console.log(result, "RSULT 2");
                     setnewModalFormDataQualifyNow(
                         {
                             email_address: "",
@@ -1665,7 +1665,14 @@ const AgencyDetail = () => {
                                             <GoogleADS placeholderId='618' width='728px' height='90px' slotno='3956446321' />
                                         </div>
 
-                                        <Emailsubs2 />
+                                        <div style={{ background: 'cyan', width: '100%', maxWidth: '100%', padding: 0, marginTop: '24px' }}>
+                                            <a style={{ height: '100%', width: '100%', maxWidth: '100%' }} href='https://secure.rspcdn.com/xprr/red/PID/12463/SID/sid_here'>
+                                                <img style={{ height: '100%', width: '100%', maxWidth: '100%' }} src={require('../../assets/img/housing_auth_ad.png').default} alt="Image" />
+                                            </a>
+                                        </div>
+
+                                        {/* EMAIL IS REPLACED WITH AD  */}
+                                        {/* <Emailsubs2 /> */}
 
                                         {/* <div className="alertBox mar24 mb-0 alertBoxx2">
                                 <div className="alertWidth">

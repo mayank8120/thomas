@@ -12,7 +12,7 @@ const ListhubForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // dispatch(createPost(postData));
-        console.log(searchdata);
+        // console.log(searchdata);
         // setSearchdata({ searchstring: '' });
     }
     // console.log(searchdata);

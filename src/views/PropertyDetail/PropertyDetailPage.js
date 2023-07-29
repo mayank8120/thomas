@@ -1694,17 +1694,17 @@ const PropertyDetailPage = ({ post }) => {
 												// replaced
 												// propdata.description
 											}
-
-
-
-
-
-
-
-
 										</p>
 									</div>
 
+
+
+									<div style={{ background: 'cyan', width: '100%', maxWidth: '100%', padding: 0, marginTop: '24px' }}>
+										<a style={{ height: '100%', width: '100%', maxWidth: '100%' }} href='https://secure.rspcdn.com/xprr/red/PID/12463/SID/sid_here'>
+											<img style={{ height: '100%', width: '100%', maxWidth: '100%' }} src={require('../../assets/img/property_detail_ad.png').default} alt="Image" />
+										</a>
+									</div>
+									{/* 
 									<div className="about_bottm_section">
 										<ul>
 											<li><a className="purpleText fontSize16 font-weight700">Save Listing |</a></li>
@@ -1733,7 +1733,7 @@ const PropertyDetailPage = ({ post }) => {
 											<button className="font-weight700 smallResponsiveBtn fontSize14 colorWhite transition brdrRadius4 itemMobile"><a href="https://secure.rspcdn.com/xprr/red/PID/921/SID/rh,belowimage" target="_blank" className='colorWhite'>Check it out</a></button>
 										</div>
 
-									</div>
+									</div> */}
 								</div>
 
 

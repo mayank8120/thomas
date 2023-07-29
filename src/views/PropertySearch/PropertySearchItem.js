@@ -259,7 +259,7 @@ export const PropertySearchItem = ({ post }) => {
             },
             0
         );
-        console.log(arrProp, "IIII");
+        // console.log(arrProp, "IIII");
         setpropListArray(arrProp);
     };
 
@@ -374,7 +374,7 @@ export const PropertySearchItem = ({ post }) => {
 
     const startCaptchaProcess = () => {
         if (!isItNull(formdata.move_date)) {
-            console.log("token startcaptchaprocess");
+            // console.log("token startcaptchaprocess");
             const script = document.createElement("script");
             script.src = `https://www.google.com/recaptcha/api.js?render=${captchaSiteKey}`;
             script.addEventListener('load', loadCaptcha);
@@ -398,7 +398,7 @@ export const PropertySearchItem = ({ post }) => {
 
     function submitAllData() {
 
-        console.log("token submit all data enter");
+        // console.log("token submit all data enter");
 
         // let formatDate = (date) => {
 
@@ -425,7 +425,7 @@ export const PropertySearchItem = ({ post }) => {
             }
         );
 
-        console.log(data);
+        // console.log(data);
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/text");
@@ -448,7 +448,9 @@ export const PropertySearchItem = ({ post }) => {
 
         fetch("https://thomasthecat.rentalhousingdeals.com/apis/v1/api/v1/checkAvailability", requestOptions)
             .then(response => response.json())
-            .then(result => console.log(result))
+            .then(result => {
+                // console.log(result)
+            })
             .catch(error => console.log('error', error));
 
     }
@@ -498,12 +500,12 @@ export const PropertySearchItem = ({ post }) => {
 
     // const secretKey = '6Ld0V8sgAAAAAJngehOac0eHt140tM5c51CTqFQH'
     const loadCaptcha = () => {
-        console.log("token Enter loadcaptcha");
+        // console.log("token Enter loadcaptcha");
         window.grecaptcha.ready(_ => {
             window.grecaptcha
                 .execute(captchaSiteKey, { action: 'sdrefs' })
                 .then(token => {
-                    console.log(token, "token");
+                    // console.log(token, "token");
 
                     if (!isItNull(token)) {
                         var axios = require('axios');

@@ -5,7 +5,7 @@ import { addDash } from '../../containers/functions';
 export const HousingAuthAgencyList = ({ data }) => {
 
 
-    console.log(data, "QQQ");
+    // console.log(data, "QQQ");
 
     const [date, setdate] = useState();
     const [time, settime] = useState();

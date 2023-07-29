@@ -229,7 +229,7 @@ export const AgencyStateListItem = ({ data }) => {
             }
         );
 
-        console.log(data);
+        // console.log(data);
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/text");
@@ -252,7 +252,9 @@ export const AgencyStateListItem = ({ data }) => {
 
         fetch("https://thomasthecat.rentalhousingdeals.com/apis/v1/api/v1/Checkavailabilityha", requestOptions)
             .then(response => response.json())
-            .then(result => console.log(result))
+            .then(result => {
+                // console.log(result)
+            })
             .catch(error => console.log('error', error));
 
     }

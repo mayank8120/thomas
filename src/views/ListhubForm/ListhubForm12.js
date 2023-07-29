@@ -11,7 +11,7 @@ const ListhubForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // dispatch(createPost(postData));
-        console.log(searchdata);
+        // console.log(searchdata);
         // setSearchdata({ searchstring: '' });
     }
     // console.log(searchdata);
@@ -197,13 +197,13 @@ const ListhubForm = () => {
     });
 
     var handleClick = id => {
-        console.log(id);
-        console.log(activeLink);
+        // console.log(id);
+        // console.log(activeLink);
 
 
         setstates({ ...states, activeLink: id });
         // activeLink=4;
-        console.log(activeLink);
+        // console.log(activeLink);
     };
 
 
@@ -252,7 +252,6 @@ const ListhubForm = () => {
 
 
                                     {links.map(link => {
-                                        { console.log(link) }
                                         return (
                                             <div key={link.id}>
                                                 <ul>

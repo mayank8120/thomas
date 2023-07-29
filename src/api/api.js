@@ -33,7 +33,9 @@ export let sendMUltipleRequestes = (data) => {
 
     fetch("https://thomasthecat.rentalhousingdeals.com/apis/v1/api/v1/checkAvailability", requestOptions)
         .then(response => response.json())
-        .then(result => console.log(result))
+        .then(result => {
+            // console.log(result)
+        })
         .catch(error => console.log('error', error));
 
 }

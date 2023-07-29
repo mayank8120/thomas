@@ -41,8 +41,8 @@ const SavedProperties = () => {
 
 
 
-    console.log(JSON.parse(localStorage.getItem('savePropList')));
-    console.log(JSON.parse(localStorage.getItem('saveHAList')));
+    // console.log(JSON.parse(localStorage.getItem('savePropList')));
+    // console.log(JSON.parse(localStorage.getItem('saveHAList')));
 
     useEffect(() => {
 
