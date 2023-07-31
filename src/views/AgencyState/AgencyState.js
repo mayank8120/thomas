@@ -140,6 +140,11 @@ const AgencyState = () => {
         // setcity(city);
         // setstatename(states.toUpperCase());
 
+        if (parameters.stateAbbrRedirectFix && parameters.cityNameRedirectFix) {
+            localStorage.clear()
+            window.location.href = "/housing-authority-waiting-lists/" + parameters.cityNameRedirectFix.replace(/\s+/g, '-') + "-" + parameters.stateAbbrRedirectFix;
+        }
+
         const text = parameters.searchText;
 
         const city = text.slice(0, -3).split('-').join(' ');

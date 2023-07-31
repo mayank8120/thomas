@@ -136,6 +136,16 @@ const PropertySearch = () => {
 
     useEffect(() => {
         if (parameters.searchText == undefined || parameters.searchText == null) {
+            console.log(parameters, "REDIRECT");
+            if (parameters.cityNameRedirectFixSection8 && parameters.stateAbbrRedirectFixSection8) {
+                localStorage.clear()
+                window.location.href = "/section-8-housing-for-rent/" + parameters.cityNameRedirectFixSection8.replace(/\s+/g, '-') + "-" + parameters.stateAbbrRedirectFixSection8;
+            }
+
+            if (parameters.cityNameRedirectFixRental && parameters.stateAbbrRedirectFixRental) {
+                localStorage.clear()
+                window.location.href = "/affordable-apartments-for-rent/" + parameters.cityNameRedirectFixRental.replace(/\s+/g, '-') + "-" + parameters.stateAbbrRedirectFixRental;
+            }
         } else {
             if (location.pathname.search("senior-housing-for-rent") != -1) {
                 localStorage.setItem("featureName", "Senior Housing");
@@ -153,6 +163,7 @@ const PropertySearch = () => {
             // else if()
             // window.location.href = `/propertySearch/${parameters.searchText.slice(0, -3).split('-').join(' ')}/${parameters.searchText.slice(-2)}`;
         }
+
         if ((parameters.cityname == undefined || parameters.cityname == null) &&
             (parameters.statename == undefined || parameters.statename == null)) {
             setareNonQuestionParametersPresent(false);

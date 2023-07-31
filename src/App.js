@@ -1,7 +1,7 @@
 import './App.css';
 
 import Navbar from './containers/Navbar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import axios from 'axios';
 
 // import { Scrollbar } from "react-scrollbars-custom";
@@ -94,17 +94,11 @@ function App() {
     return (
         <>
 
-            {/* <div>
-                <h1>App34</h1>
-                <h2>{JSON.stringify(propResult)}</h2>
-                {console.log((JSON.stringify(propResult)).slice(0, 10), "POSTS")}
-            </div> */}
-
-
             <Router>
                 <Navbar />
                 <ScrollToTop>
                     <Switch>
+
                         <Route path="/" exact component={Index} />
                         <Route path="/senior-housing" exact component={Seniorhousing} />
                         <Route path="/section-8-housing" component={Section8housing} />
@@ -120,16 +114,10 @@ function App() {
 
 
 
-                        <Route path="/public-housing" component={PublicHousing} />
-                        <Route path="/basic-info-page" component={BasicInfoPage} />
-                        {/* <Route path="/generalProperty" component={GeneralProperty} /> */}
-
-
-
-
 
 
                         <Route path="/housing-authority-waiting-lists/:searchText" component={AgencyState} />
+                        <Route path="/housing-authority/:stateAbbrRedirectFix/:cityNameRedirectFix" component={AgencyState} />
                         <Route path="/housing-authority-waitlists" exact component={Housingauthoritywaitlist} />
 
 
@@ -138,8 +126,7 @@ function App() {
 
 
 
-                        <Route path="/savedProperties" component={SavedProperties} />
-                        <Route path="/list-with-us" component={ListWithUs} />
+
 
 
 
@@ -159,16 +146,33 @@ function App() {
 
 
 
+                        <Route path="/propertySearch/:cityname/:statename/:feature?" component={PropertySearch} />
+                        <Route path="/propertySearch" component={PropertySearch} />
 
 
+                        <Route path="/index.php/section-8-housing/:stateAbbrRedirectFixSection8/:cityNameRedirectFixSection8" component={PropertySearch} />
+                        <Route path="/index.php/:stateAbbrRedirectFixRental/:cityNameRedirectFixRental" component={PropertySearch} />
 
-                        <Route path="/listhub" component={Listhub} />
-                        <Route path="/listhubform" component={ListhubForm} />
-                        {/* <Route path="/propertySearch" component={PropertySearch} /> */}
-                        <Route path="/listhubSearch" component={ListhubSearch} />
-                        <Route path="/compareProperties" component={CompareProperties} />
-                        <Route path="/premium" component={Premium} />
-                        {/* <Route path="/trial" component={Trial} /> */}
+                        <Route path="/affordable-apartments-for-rent/:searchText" component={PropertySearch} />
+                        <Route path="/senior-housing-for-rent/:searchText" component={PropertySearch} />
+                        <Route path="/section-8-housing-for-rent/:searchText" component={PropertySearch} />
+                        {/* <Route path="/propertySearch/:cityname/:statename/:feature?" component={PropertySearchFullMap} />
+                        <Route path="/propertySearch" component={PropertySearchFullMap} /> */}
+
+
+                        {/* <Route path='/trial' component={Trial} /> */}
+                        {/* <Route path="/listHubDetailMock" component={DetailPageGreatRd} /> */}
+                        {/* <Route path="/listhub" component={Listhub} /> */}
+                        {/* <Route path="/listhubform" component={ListhubForm} /> */}
+                        {/* <Route path="/premium" component={Premium} /> */}
+                        {/* <Route path="/listhubSearch" component={ListhubSearch} /> */}
+                        {/* <Route path="/compareProperties" component={CompareProperties} /> */}
+
+                        <Route path="/savedProperties" component={SavedProperties} />
+                        <Route path="/list-with-us" component={ListWithUs} />
+                        <Route path="/public-housing" component={PublicHousing} />
+                        <Route path="/basic-info-page" component={BasicInfoPage} />
+
 
                         <Route path="/about" component={AboutUs} />
                         <Route path="/terms" component={Terms} />
@@ -183,33 +187,14 @@ function App() {
                         <Route path="/a-good-place-to-live" component={GoodPlaceToLive} />
                         <Route path="/fair-market-rents" component={FairMarketRents} />
                         <Route path="/sitemap" component={SiteMap} />
-                        <Route path="/error404" component={ErrorPage} />
-
                         <Route path="/inspections" component={Inspections} />
                         <Route path="/payment-standards" component={Payments} />
                         <Route path="/contact" component={ContactUs} />
                         <Route path="/advertise-with-us" component={ContactUs} />
 
+                        <Route path="/error404" component={ErrorPage} />
 
-
-                        <Route path="/propertySearch/:cityname/:statename/:feature?" component={PropertySearch} />
-                        <Route path="/propertySearch" component={PropertySearch} />
-
-
-
-                        <Route path="/affordable-apartments-for-rent/:searchText" component={PropertySearch} />
-                        <Route path="/senior-housing-for-rent/:searchText" component={PropertySearch} />
-                        <Route path="/section-8-housing-for-rent/:searchText" component={PropertySearch} />
-                        {/* <Route path="/propertySearch/:cityname/:statename/:feature?" component={PropertySearchFullMap} />
-                        <Route path="/propertySearch" component={PropertySearchFullMap} /> */}
-
-
-                        <Route path='/trial' component={Trial} />
-
-
-                        <Route path="/listHubDetailMock" component={DetailPageGreatRd} />
-
-
+                        <Redirect to="/" />
                     </Switch>
                 </ScrollToTop>
             </Router>
