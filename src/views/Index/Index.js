@@ -36,13 +36,6 @@ const Index = (props) => {
         fetchData();
     }, [latlngurl]);
 
-
-
-    // navigator.geolocation.getCurrentPosition(function (position) {
-    //     console.log("Latitude is :", position.coords.latitude);
-    //     console.log("Longitude is :", position.coords.longitude);
-    // });
-
     let nearbypropurl;
     const [nearbypropdata, setnearbypropdata] = useState([]);
     if (latlngdata == undefined || latlngdata == [] || latlngdata == null) {
@@ -71,7 +64,6 @@ const Index = (props) => {
     ezstandalone.display();
     });`
 
-    // console.log(latlngdata);
     return (
         <>
 
@@ -80,14 +72,6 @@ const Index = (props) => {
 
 
             <Banner latlngdata={latlngdata} />
-
-
-            {/* <section className="secPad">
-                <div className="container">
-                    <GoogleADS placeholderId='618' width='728px' height='90px' slotno='3956446321' />
-                </div>
-            </section> */}
-
 
             {/* Static part */}
             <Searchneeds latlngdata={latlngdata} />
@@ -99,28 +83,6 @@ const Index = (props) => {
                     <GoogleADS placeholderId='618' width='728px' height='90px' slotno='3956446321' />
                 </div>
             </section>
-
-
-            {/* HIIII */}
-
-
-
-            {/* <section className="secPad">
-                <div className="container">
-
-                    <div>
-                        <div id="ezoic-pub-ad-placeholder-108">
-                            <ins class="adsbygoogle"
-                                style={{ display: "inline-block", width: "728px", height: "90px" }}
-                                data-ad-client="ca-pub-2836217214879103"
-                                data-ad-slot="6662484805"></ins>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
-
-
-
 
             {/* dynamic part  */}
             <PropertiesNearby propertynearby={nearbypropdata} titletext={"Affordable Properties Near You"} />

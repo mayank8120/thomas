@@ -13,12 +13,9 @@ import Starratingstatic from '../../containers/Starratingstatic';
 import SinglePointMap from '../../containers/SinglePointMap.js';
 import SchoolItem from './SchoolItem';
 import Amenities from './Amenities';
-// import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import { buildStyles } from "react-circular-progressbar";
-// import { Carousel, CarouselItem } from 'react-bootstrap';
-
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import FloorPlan from './FloorPlan';
@@ -187,31 +184,8 @@ const PropertyDetailPage = ({ post }) => {
 	}
 
 
-
-	let statelisturl = `https://thomasthecat.rentalhousingdeals.com/apis/v1/api/v1/selectallState`
-
-
-
-
-	// useEffect(() => {
-	//     const fetchData = async () => {
-	//         const result = await axios.get(statelisturl)
-	//             .then(res => {
-	//                 // //console.log(res);
-	//                 setstatelist(res.data.data);
-	//             }).catch(error => {
-	//                 console.log('error', error);
-	//             });
-
-	//     };
-	//     fetchData();
-	// }, [statelisturl]);
-
-
-	// console.log(statelist);
 	const responsive = {
 		superLargeDesktop: {
-			// the naming can be any, depends on you.
 			breakpoint: { max: 4000, min: 3000 },
 			items: 5
 		},
@@ -234,11 +208,6 @@ const PropertyDetailPage = ({ post }) => {
 		setIsOpenAvailability(!isOpenAvailability);
 	}
 
-
-
-
-	// newModalFormDataQualifyNow, setnewModalFormDataQualifyNow
-
 	const [isOpenQualify, setIsOpenQualify] = useState(false);
 	function toggleModalQualify() {
 		setIsOpenQualify(!isOpenQualify);
@@ -249,42 +218,26 @@ const PropertyDetailPage = ({ post }) => {
 		setIsOpenImage(!isOpenImage);
 	}
 
-	// const [isopenschool, setisopenschool] = useState(false);
-	// function toggleisopenschool() {
-	//     setisopenschool(!isopenschool);
-	// }
-
 	const [formData, setformData] = useState({ name: '', address: '', city: '', state: '', zip: '', emailid: '', phone: '', date: '', occupants: '', monthlyIncome: '', voucher: '', disclaimer: '' })
 
-
-	const [radiobutton, setradiobutton] = useState();
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// console.log(formData);
 		startCaptchaProcessModal();
-		// submitAllData();
-		// setformData({ name: '', lastname: '', address: '', city: '', state: '', zip: '', emailid: '', phone: '', date: '', occupants: '', monthlyIncome: '', voucher: '', disclaimer: "This is NOT an application for rental assistance. It is only being forwarded for review by the selected Housing Agency, Management Company or Property Owner who determine eligibility and approval. Receipt of your information does not guarantee acceptance in any rental assistance program, nor will it place you on any waiting list. Further information will be required to determine your eligibility for any Rental Assistance program and approval for a selected unit and you are responsibile for continuing the qualification process.By clicking on the Submit button below, you agree that you have read, understand, and accept these terms and conditions." })
 	}
 
 	const startCaptchaProcessModal = () => {
-		// if (!isItNull(formData.move_date)) {
-		// console.log("token startcaptchaprocess");
 		const script = document.createElement("script");
 		script.src = `https://www.google.com/recaptcha/api.js?render=${captchaSiteKey}`;
 		script.addEventListener('load', loadCaptchaModal);
 		document.body.appendChild(script);
-		// }
 	}
 
 
 	const loadCaptchaModal = () => {
-		// console.log("token Enter loadcaptcha");
 		window.grecaptcha.ready(_ => {
 			window.grecaptcha
 				.execute(captchaSiteKey, { action: 'sdrefs' })
 				.then(token => {
-					// console.log(token, "token");
-
 					if (!isItNull(token)) {
 						var axios = require('axios');
 						var data = '';
@@ -299,7 +252,6 @@ const PropertyDetailPage = ({ post }) => {
 						axios(config)
 							.then(function (response) {
 								if (response.data.success === true) {
-									// console.log("Captcha Success");
 									setcaptchaValue(true);
 
 									submitAllData();
@@ -309,7 +261,6 @@ const PropertyDetailPage = ({ post }) => {
 									console.log("Captcha failed");
 									setcaptchaValue(false);
 								}
-								// console.log(response.data.success, "token11");
 							})
 							.catch(function (error) {
 								console.log("Captcha error");
@@ -333,8 +284,6 @@ const PropertyDetailPage = ({ post }) => {
 			let year = newdate.getFullYear();
 
 			return `${day}/${month}/${year}`
-
-			// return date.replace(/-/g, '/');
 		}
 
 
@@ -358,9 +307,6 @@ const PropertyDetailPage = ({ post }) => {
 					"user_id": "9830"
 				}
 			);
-
-		// console.log(data);
-
 		var myHeaders = new Headers();
 		myHeaders.append("Content-Type", "application/text");
 
@@ -374,7 +320,6 @@ const PropertyDetailPage = ({ post }) => {
 		fetch("https://thomasthecat.rentalhousingdeals.com/apis/v1/api/v1/applynowrenter", requestOptions)
 			.then(response => response.json())
 			.then(result => {
-				// console.log(result);
 				if (result.error == false) {
 					toggleModalQualify();
 					toggleModalThankYou();
@@ -418,8 +363,6 @@ const PropertyDetailPage = ({ post }) => {
 
 	const [beddesc, setbeddesc] = useState();
 	const [progdesc, setprogdesc] = useState();
-	const [minbedr, setminbedr] = useState();
-	const [maxbedr, setmaxbedr] = useState();
 	const [bathinfogeneral, setbathinfogeneral] = useState();
 
 
@@ -453,18 +396,13 @@ const PropertyDetailPage = ({ post }) => {
 				setprogdesc(' apartments ');
 			}
 
-
 			if (propdetails.max_bath == null || propdetails.max_bath == "" || propdetails.max_bath == undefined) {
-				// console.log("hello");
-				// setbathinfogeneral(`${decimalRoundOff(propdetails.max_bath)} Bath`);
 			}
 			else {
-				// console.log("hello");
 				setbathinfogeneral(`${decimalRoundOff(propdetails.max_bath)} Ba`);
 			}
 			if (propdetails.min_bath == null || propdetails.min_bath == "" || propdetails.min_bath == undefined) {
 			} else {
-				// console.log("mayank");
 				setbathinfogeneral(`${decimalRoundOff(propdetails.min_bath)} Ba`);
 			}
 
@@ -506,26 +444,14 @@ const PropertyDetailPage = ({ post }) => {
 			setbathfornongeneral(`${decimalRoundOff(propdetails.max_bath)} Ba `);
 		}
 
-
-
-
 	});
 
 	const [tagline, settagline] = useState("");
 
-
-
 	useEffect(() => {
-
-
 		if (propdata.property_type == 'general') {
-
-			// console.log("GENERAL PROPERTY");
-			// console.log(propdetails.seniorprop, propdetails.seniorpropval);
-
 			settagline(
 				"Low Income " +
-
 				(propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '55') ? "Senior 55+ " : "")
 				+
 				(propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '') ? "Senior " : "")
@@ -533,31 +459,17 @@ const PropertyDetailPage = ({ post }) => {
 				(propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '62') ? "Senior 62+ " : "")
 				+
 				"Apartment for Rent at "
-
 				+ propdata.property_address + ", "
 				+ capitaliseFirstLetterOfWord(propdata.property_city) + ", "
 				+ propdata.property_state + ", "
 				+ propdata.property_zip + ""
-				// + beddesc + " " 
-				// + "Affordable Housing in " + capitaliseFirstLetterOfWord(propdata.property_city) + ", "
-				// +
-				// (propdetails.length !== 0 && ((propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '55') || propdetails.seniorpropval == '') ? "Senior 55+, " : "")
-				// +
-				// (propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '62') ? "Senior 62+, " : "")
-				// +
-				// (propdetails.length !== 0 && propdetails.pet_allowed == 'Yes' ? "Pets OK, " : "")
 			)
 
 
 		}
 
 		else {
-
-			// console.log("PREMIUM");
-
 			if (propdetails.section8 == 'Yes') {
-
-				// console.log("SECTION 8");
 				settagline(
 
 					(propfloor == null || propfloor.length == 0) ? "" : (propfloor[0].rent_from == 0 ? "Please Call for Rent" : `$${commaInNumber(propfloor[0].rent_from)}`)
@@ -574,31 +486,13 @@ const PropertyDetailPage = ({ post }) => {
 						+ "Apartments for Rent at "
 						+
 						propdata.property_address + ", " + capitaliseFirstLetterOfWord(propdata.property_city) + ", " + propdata.property_state + ", " + propdata.property_zip
-
-
-					// bedfornongeneral + " " + bathfornongeneral + " " + " in " + ", "
-					// +
-					// (propdetails.length !== 0 && ((propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '55') || propdetails.seniorpropval == '') ? "Senior 55+, " : "")
-					// +
-					// (propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '62') ? "Senior 62+, " : "")
-					// +
-					// (propdetails.length !== 0 && propdetails.section8 == 'Yes' ? "Section 8, " : "")
-					// +
-					// (propdetails.length !== 0 && propdetails.pet_allowed == 'Yes' ? "Pets OK, " : "")
 				)
 			}
 			else {
-
-				// console.log("NO SECTION 8");
-
 				settagline(
 					(propfloor == null || propfloor.length == 0) ?
 						"" :
 						(propfloor[0].rent_from == 0 ? "Please Call for Rent - " : `$${commaInNumber(propfloor[0].rent_from)}`)
-
-						// "$" + commaInNumber(propfloor[0].rent_from)
-
-						// capitaliseFirstLetterOfWord(thirdval) 
 						+
 						" "
 						+
@@ -608,20 +502,8 @@ const PropertyDetailPage = ({ post }) => {
 						+
 						(propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '62') ? "Senior 62+ " : "")
 						+
-
 						(propfloor[0].rent_from == 0 ? "" : "Apartments for Rent at ")
-
-
-
-
 						+ propdata.property_address + ", " + propdata.property_city + ", " + propdata.property_state + ", " + propdata.property_zip + " "
-
-					// bedfornongeneral + " " + bathfornongeneral + " " + " in " + capitaliseFirstLetterOfWord(propdata.property_city) + ", "
-					// +
-
-					// (propdetails.length !== 0 && propdetails.section8 == 'Yes' ? "Section 8, " : "")
-					// +
-					// (propdetails.length !== 0 && propdetails.pet_allowed == 'Yes' ? "Pets OK, " : "")
 				)
 
 
@@ -630,86 +512,6 @@ const PropertyDetailPage = ({ post }) => {
 
 
 		}
-
-
-
-
-
-
-		// console.log(propdata.property_type);
-		// if (propdetails.section8 == 'Yes') {
-		//     settagline(
-
-
-		//         capitaliseFirstLetterOfWord(thirdval) + " "
-		//         +
-		//         (propdetails.length !== 0 && ((propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '55') || propdetails.seniorpropval == '') ? "Senior 55+, " : "")
-		//         +
-		//         (propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '62') ? "Senior 62+, " : "")
-		//         +
-		//         "Low Income Apartments for Rent at "
-		//         +
-		//         propdata.property_address + ", " + capitaliseFirstLetterOfWord(propdata.property_city) + ", " + propdata.property_state + ", " + propdata.property_zip
-
-
-		//         // bedfornongeneral + " " + bathfornongeneral + " " + " in " + ", "
-		//         // +
-		//         // (propdetails.length !== 0 && ((propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '55') || propdetails.seniorpropval == '') ? "Senior 55+, " : "")
-		//         // +
-		//         // (propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '62') ? "Senior 62+, " : "")
-		//         // +
-		//         // (propdetails.length !== 0 && propdetails.section8 == 'Yes' ? "Section 8, " : "")
-		//         // +
-		//         // (propdetails.length !== 0 && propdetails.pet_allowed == 'Yes' ? "Pets OK, " : "")
-		//     )
-		// }
-
-		// else {
-		//     if (propdata.property_type == 'general') {
-
-		//         settagline(
-		//             capitaliseFirstLetterOfWord(thirdval) + ", "
-		//             + propdata.property_address + ", "
-		//             + propdata.property_city + ", "
-		//             + propdata.property_state + ", "
-		//             + propdata.property_zip + " "
-		//             + beddesc + " " + "Affordable Housing in " + capitaliseFirstLetterOfWord(propdata.property_city) + ", " + (propdetails.length !== 0 && ((propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '55') || propdetails.seniorpropval == '') ? "Senior 55+, " : "")
-		//             +
-		//             (propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '62') ? "Senior 62+, " : "")
-		//             +
-		//             (propdetails.length !== 0 && propdetails.pet_allowed == 'Yes' ? "Pets OK, " : "")
-		//         )
-
-		//     }
-
-		//     if (propdata.property_type == 'premium') {
-
-		//         settagline(
-
-		//             capitaliseFirstLetterOfWord(thirdval) + ", "
-		//             + 
-		//             (propdetails.length !== 0 && ((propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '55') || propdetails.seniorpropval == '') ? "Senior 55+, " : "")
-		//             +
-		//             (propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '62') ? "Senior 62+, " : "")
-		//             + "Apartments for Rent at "
-		//             + propdata.property_address + ", " + propdata.property_city + ", " + propdata.property_state + ", " + propdata.property_zip + " "
-
-		//             // bedfornongeneral + " " + bathfornongeneral + " " + " in " + capitaliseFirstLetterOfWord(propdata.property_city) + ", "
-		//             // +
-
-		//             // (propdetails.length !== 0 && propdetails.section8 == 'Yes' ? "Section 8, " : "")
-		//             // +
-		//             // (propdetails.length !== 0 && propdetails.pet_allowed == 'Yes' ? "Pets OK, " : "")
-		//         )
-
-
-		//     }
-		// }
-
-
-
-
-
 	}, [beddesc, bedfornongeneral, bathfornongeneral]);
 
 
@@ -786,13 +588,6 @@ const PropertyDetailPage = ({ post }) => {
 
 	return (
 		<>
-			{/* <Helmet>
-                <script type="text/javascript">
-                    {adsHeadScript}
-                </script>
-            </Helmet> */}
-
-
 			<section className="detailPage secPad24 propertydetail-page agencyMarginTop">
 				<div className="container">
 					<div className="row">
@@ -818,64 +613,12 @@ const PropertyDetailPage = ({ post }) => {
 							<div className="d-flex detailHeadSec align-items-end">
 								<h1 className="font-weight700 mb-0 fontSize18">
 									{removelastcomma(tagline)}
-									{/* 
-                                    {
-                                        propdata.property_type == 'general' ?
-                                            beddesc + " " + "Affordable Housing in " + capitaliseFirstLetterOfWord(propdata.property_city) + ", " + (propdetails.length !== 0 && ((propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '55') || propdetails.seniorpropval == '') ? "Senior 55+, " : "")
-                                            +
-                                            (propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '62') ? "Senior 62+, " : "")
-                                            +
-                                            (propdetails.length !== 0 && propdetails.pet_allowed == 'Yes' ? "Pets OK, " : "")
-                                            :
-
-                                            ""
-                                    }
-                                    {
-                                        propdata.property_type == 'general' ?
-
-                                            ""
-                                            :
-                                            bedfornongeneral + " " + bathfornongeneral + " " + thirdval + " in " + capitaliseFirstLetterOfWord(propdata.property_city) + ", "
-                                            +
-                                            (propdetails.length !== 0 && ((propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '55') || propdetails.seniorpropval == '') ? "Senior 55+ " : "")
-                                            +
-                                            (propdetails.length !== 0 && (propdetails.seniorprop == 'Yes' && propdetails.seniorpropval == '62') ? "Senior 62+, " : "")
-                                            +
-                                            (propdetails.length !== 0 && propdetails.section8 == 'Yes' ? "Section 8, " : "")
-                                            +
-                                            (propdetails.length !== 0 && propdetails.pet_allowed == 'Yes' ? "Pets OK, " : "")
-
-                                    } 
-                                    */}
 
 
 
 
 
 
-
-									{/* {propdata.property_address} {propdata.property_city}, {propdata.property_state} {propdata.property_zip} Rental Deals&nbsp;
-
-                                   
-
-
-                                    {beddesc}&nbsp;
-                                    {
-                                        bathinfogeneral == null || bathinfogeneral == '' || bathinfogeneral == undefined ?
-                                            null :
-
-                                            bathinfogeneral
-                                    }&nbsp;
-
-
-                                    {
-                                        propdata.property_type == 'general' ?
-                                            'CALL'
-                                            :
-                                            thirdval
-                                    }
-
-                                    &nbsp;{propdata.phone} */}
 								</h1>
 								<div className="ml-auto responsiveMarLeft">
 									<ul className="noMarginPad listStyleNone sideActionIcon">
@@ -890,7 +633,6 @@ const PropertyDetailPage = ({ post }) => {
 												() => {
 													addOrRemoveProp(propdata.id_property, new Date());
 													getAllProp();
-													// console.log(toggleHeart(propdata.id_property));
 													colorChange(propdata.id_property);
 												}
 											}
@@ -911,10 +653,7 @@ const PropertyDetailPage = ({ post }) => {
 											<img src={require('../../assets/img/share.svg').default} />
 
 										</li>
-										{/* <li className="brdrRadius4 arrowBlock d-flex align-items-center">
-                                            <img src={require('../../assets/img/leftArrow.png').default} />
-                                            <img className="ml-auto" src={require('../../assets/img/rightArrow.png').default} />
-                                        </li> */}
+
 									</ul>
 								</div>
 							</div>
@@ -923,9 +662,6 @@ const PropertyDetailPage = ({ post }) => {
 							<div className="detailLeftSec">
 
 
-								{/* {propdata.property_type == 'general' ?
-                                    null
-                                    : */}
 
 								<div className="imageSec sliderImageBlock owl-carousel owl-theme propertyDetailSlider">
 									<div className="item posRel">
@@ -937,22 +673,8 @@ const PropertyDetailPage = ({ post }) => {
 									</div>
 								</div>
 
-								{/* } */}
-
-								{/* <div className="imageSec sliderImageBlock owl-carousel owl-theme propertyDetailSlider">
-                                    <div className="item posRel">
 
 
-
-                                        <ImageSliderCarousel propimages={propimages} />
-
-                                        <span className="viewPhoto" onClick={toggleModalImage}>
-                                            <i className="far fa-image font-weight500" onClick={toggleModalImage}></i>
-                                            {propimages.length == 0 ? `No photos available` : `All ${propimages.length} Photos`}
-                                        </span>
-
-                                    </div>
-                                </div> */}
 
 
 								<div className="modal fade rentalModal availabilityModal" id="exampleModalPhoto" tabindex="-1"
@@ -977,7 +699,7 @@ const PropertyDetailPage = ({ post }) => {
 													<ul className="noMarginPad listStyleNone sideActionIcon">
 														<li className="brdrRadius4 itemWebsite">
 															<i className="far fa-heart lightbluemodified"></i>
-															{/* <img src={require('../../assets/img/redHeart.png').default} /> */}
+
 														</li>
 														<li className="brdrRadius4 itemWebsite mr-0">
 															<img src={require('../../assets/img/share.svg').default} />
@@ -1007,7 +729,6 @@ const PropertyDetailPage = ({ post }) => {
 											</ul>
 										</div>
 										<div className="ml-auto priceTagDet">
-											{/* <h2 className="font-weight700 colorBlue">${propdetails.min_rent} - ${propdetails.max_rent}</h2> */}
 
 											<h2 className="font-weight700 colorBlue">
 												{
@@ -1110,26 +831,11 @@ const PropertyDetailPage = ({ post }) => {
 															</div>
 															: null
 													}
-
-
-
 												</div>
 											</div>
 										</div>
 										<div className="ml-auto rightOtherDetail">
 											<ul className="noMarginPad listStyleNone">
-
-												{/* <li className="d-flex aligm-items-center">
-                                                    <span className="imgBox">
-                                                        <img src={require('../../assets/img/Union.svg').default} />
-                                                    </span>
-                                                    <p className="mb-0 secondaryColor">
-                                                        <span className="colorBlue">
-                                                            {propdetails.min_bed}-{propdetails.max_bed}
-                                                        </span> Beds
-                                                    </p>
-                                                </li> */}
-
 												{
 													propdetails.min_bed && propdetails.max_bed ?
 														<li className="d-flex aligm-items-center">
@@ -1254,7 +960,6 @@ const PropertyDetailPage = ({ post }) => {
 											</ul>
 										</div>
 									</div>
-									{/* href="tel:8665562570" */}
 
 									<div className="d-flex align-items-center btnSection">
 
@@ -1267,184 +972,14 @@ const PropertyDetailPage = ({ post }) => {
 												<img src={require('../../assets/img/phoneIcon.svg').default} />{propdata.phone}
 											</a>
 										}
-										{/* <a href={`tel:${propdata.phone}`} className="brdrRadius4 w-50 text-center d-flex align-items-center justify-content-center">
-                                            <img src={require('../../assets/img/phoneIcon.svg').default} />{propdata.phone}
-                                        </a> */}
 										<span className="brdrRadius4 w-50 text-center d-flex align-items-center justify-content-center" >
 											{propdata.property_type == 'general' ? null : <img src={require('../../assets/img/qualifyIcon.svg').default} />}
 
 											<button onClick={toggleModalQualify}>
 												{propdata.property_type == 'general' ? 'Apply Now' : 'Qualify Now'}
-												{/* Qualify Now */}
+
 											</button>
 										</span>
-
-										{/* <div className="modal fade rentalModal preRentalModal" id="exampleModal" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div className="modal-dialog boxscroll4" role="document">
-                                                <div className="wrapperScroll">
-                                                    <div className="modal-content">
-                                                        <div className="modal-header">
-                                                            <h5 className="modal-title w-100 text-center font-weight700"
-                                                                id="exampleModalLabel">Pre-Rental Qualify</h5>
-                                                            <button type="button" className="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div className="modal-body">
-                                                            <form>
-                                                                <div className="row">
-                                                                    <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                                                        <div className="form-group">
-                                                                            <label for="exampleInputEmail1">Full Name <span
-                                                                                className="labelMark">*</span></label>
-                                                                            <input type="email" className="form-control" id=""
-                                                                                aria-describedby="emailHelp"
-                                                                                placeholder="Email Address" value="Jonath" />
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                                                        <div className="form-group">
-                                                                            <label for="exampleInputEmail1">Address </label>
-                                                                            <input type="email" className="form-control" id=""
-                                                                                aria-describedby="emailHelp" placeholder=""
-                                                                                value="4353 Norman Street" />
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                                        <div className="form-group">
-                                                                            <label for="">City</label>
-                                                                            <input type="email" className="form-control" id=""
-                                                                                aria-describedby="emailHelp"
-                                                                                placeholder="Email Address" value="Los Angeles" />
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                                        <div className="row">
-                                                                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                                                <div className="form-group">
-                                                                                    <label
-                                                                                        for="exampleFormControlSelect1">State</label>
-                                                                                    <select className="form-control"
-                                                                                        id="exampleFormControlSelect1">
-                                                                                        <option>CA</option>
-                                                                                        <option>CA</option>
-                                                                                        <option>CA</option>
-                                                                                        <option>CA</option>
-                                                                                        <option>CA</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                                                <div className="form-group">
-                                                                                    <label for="">ZIP</label>
-                                                                                    <input type="email" className="form-control"
-                                                                                        id="" aria-describedby="emailHelp"
-                                                                                        placeholder="Email Address" value="90022" />
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                        <div className="form-group">
-                                                                            <label for="">Email Address <span
-                                                                                className="labelMark">*</span></label>
-                                                                            <input type="email" className="form-control" id=""
-                                                                                aria-describedby="emailHelp"
-                                                                                placeholder="Email Address"
-                                                                                value="Jonathan@gmail.com" />
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                        <div className="form-group">
-                                                                            <label for="">Phone Number <span
-                                                                                className="labelMark">*</span></label>
-                                                                            <input type="email" className="form-control" id=""
-                                                                                aria-describedby="emailHelp"
-                                                                                placeholder="Enter phone" value="6261234123" />
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                        <div className="form-group">
-                                                                            <label for="">Move-In Date</label>
-                                                                            <div className="posRel calnderIcon">
-                                                                                <input type="email" className="form-control" id=""
-                                                                                    aria-describedby="emailHelp"
-                                                                                    placeholder="Move-In Date" value="" />
-                                                                                <span><img src={require('../../assets/img/calander.png').default} /></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                                        <div className="row">
-                                                                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                                                <div className="form-group">
-                                                                                    <label for="">Occupants</label>
-                                                                                    <div className="posRel calnderIcon">
-                                                                                        <input type="number" min="1" max="5"
-                                                                                            className="form-control" id=""
-                                                                                            aria-describedby="emailHelp"
-                                                                                            placeholder="" value="1" />
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                                                <div className="form-group">
-                                                                                    <label for="">Monthly Income</label>
-                                                                                    <input type="email" className="form-control"
-                                                                                        id="" aria-describedby="emailHelp"
-                                                                                        placeholder="" value="" />
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                                        <div className="radioSec">
-                                                                            <div className="form-group mb-0">
-                                                                                <label>Do you have a voucher?</label>
-                                                                                <div className="d-flex align-items-center">
-                                                                                    <div>
-                                                                                        <input type="radio" id="test1"
-                                                                                            name="radio-group" checked />
-                                                                                        <label for="test1">Yes</label>
-                                                                                    </div>
-                                                                                    <div>
-                                                                                        <input type="radio" id="test2"
-                                                                                            name="radio-group" checked />
-                                                                                        <label for="test2">No</label>
-                                                                                    </div>
-                                                                                    <div>
-                                                                                        <input type="radio" id="test3"
-                                                                                            name="radio-group" checked />
-                                                                                        <label for="test3">On Waiting
-                                                                                            List</label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
-                                                            <div className="brdrLine marLftRgt"></div>
-                                                            <div>
-                                                                <h5 className="fontSize14 font-weight700">Disclaimer/Terms of
-                                                                    Conditions:</h5>
-                                                                <div className="form-group">
-                                                                    <textarea className="form-control"
-                                                                        id="exampleFormControlTextarea1" rows="3"
-                                                                        placeholder="This is NOT an application for rental assistance. It is only being forwarded for review by the selected Housing Agency, Management Company or Property Owner who determine eligibility and approval. Receipt of your information does not guarantee acceptance in any rental assistance program, nor will it place you on any waiting list. Further information will be required to determine your eligibility for any Rental Assistance program and approval for a selected unit and you are responsibile for continuing the qualification process.By clicking on the Submit button below, you agree that you have read, understand, and accept these terms and conditions."></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="modal-footer">
-                                                            <button type="button"
-                                                                className="btn w-100 modalSubmitBtn fontSize16 font-weight500 colorWhite">Submit</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> */}
 									</div>
 								</div>
 
@@ -1462,7 +997,6 @@ const PropertyDetailPage = ({ post }) => {
 														onClick={() => {
 															addOrRemoveProp(propdata.id_property, new Date());
 															getAllProp();
-															// console.log(toggleHeart(propdata.id_property));
 															colorChange(propdata.id_property);
 														}
 														}
@@ -1478,8 +1012,6 @@ const PropertyDetailPage = ({ post }) => {
 																	<i className="far fa-heart lightbluemodified"></i>
 																</>
 														}
-														{/* 1111 */}
-														{/* <img src={require('../../assets/img/like.png').default} /> */}
 													</li>
 													<li className="brdrRadius4 mr-0">
 														<img src={require('../../assets/img/share.svg').default} />
@@ -1488,13 +1020,6 @@ const PropertyDetailPage = ({ post }) => {
 											</div>
 										</div>
 										<div>
-											{/* <ul className="noMarginPad listStyleNone">
-                                                <li><img src={require('../../assets/img/starRate.svg').default} /></li>
-                                                <li><img src={require('../../assets/img/starRate.svg').default} /></li>
-                                                <li><img src={require('../../assets/img/starRate.svg').default} /></li>
-                                                <li><img src={require('../../assets/img/starRate.svg').default} /></li>
-                                                <li><img src={require('../../assets/img/starRate.svg').default} /></li>
-                                            </ul> */}
 
 											{
 												proprating.length == 0 ? null : <Starratingstatic rating={proprating[0].vote_avg} />
@@ -1691,8 +1216,6 @@ const PropertyDetailPage = ({ post }) => {
 													:
 
 													<span dangerouslySetInnerHTML={{ __html: replaced }} />
-												// replaced
-												// propdata.description
 											}
 										</p>
 									</div>
@@ -1704,36 +1227,6 @@ const PropertyDetailPage = ({ post }) => {
 											<img style={{ height: '100%', width: '100%', maxWidth: '100%' }} src={require('../../assets/img/property_detail_ad.png').default} alt="Image" />
 										</a>
 									</div>
-									{/* 
-									<div className="about_bottm_section">
-										<ul>
-											<li><a className="purpleText fontSize16 font-weight700">Save Listing |</a></li>
-											<li> <a className="purpleText fontSize16 font-weight700">Share |</a></li>
-											<li><a className="purpleText fontSize16 font-weight700">Affordable Rental Assistance Near {propdata.property_city} {propdata.property_state}</a></li>
-										</ul>
-										<div className="media rewards mt-4">
-											<img className=""
-												src={require('../../assets/img/rewards.png').default}
-												alt="Image" />
-											<div className="media-body ml-3" >
-												<div className="d-flex align-items-top">
-													<div className="headingSec">
-														<h5 className="mt-0 mb-0 fontSize18 text-left font-weight700 colorBlue">Build your credit and earn rewards</h5>
-														<p className="mb-0 mt-2 colorBlue text-left fontSize16 font-weight400 itemWebsite">Landlords often favor applicants with a high credit score.We have provided an opportunity that over 100,000 members are using to help build their credit - A debit card that builds credit and earn rewards.No credit checks.Keep your bank!
-														</p>
-														<button className="font-weight700 smallResponsiveBtn fontSize14 colorWhite transition brdrRadius4 itemWebsite"><a href="https://secure.rspcdn.com/xprr/red/PID/921/SID/rh,belowimage" target="_blank" className='colorWhite'>Check it out</a></button>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div className="rewards itemMobile">
-											<p className="mb-0 mt-2 colorBlue text-left fontSize18 font-weight400 ">Landlords often favor applicants with a high credit score.We have provided an opportunity that over 100,000 members are using to help build their credit - A debit card that builds credit and earn rewards.No credit checks.Keep your bank!
-											</p>
-											<button className="font-weight700 smallResponsiveBtn fontSize14 colorWhite transition brdrRadius4 itemMobile"><a href="https://secure.rspcdn.com/xprr/red/PID/921/SID/rh,belowimage" target="_blank" className='colorWhite'>Check it out</a></button>
-										</div>
-
-									</div> */}
 								</div>
 
 
@@ -1820,8 +1313,6 @@ const PropertyDetailPage = ({ post }) => {
 											</div>
 											<div className="d-flex align-items-center availSec responsive15 flex-wrap">
 												<div>
-													{/* <p className="mb-0">Last updated: <span className="colorBlue font-weight700">Wed, 28 August
-                                                        2020</span></p> */}
 												</div>
 												<div className="ml-auto Resnoauto itemWebsite">
 													<button className="brdrRadius4 transition w-100 d-flex align-items-center justify-content-center" onClick={toggleModalAvailability}><img src={require('../../assets/img/mail.svg').default} /><span>Check
@@ -1835,35 +1326,6 @@ const PropertyDetailPage = ({ post }) => {
 								}
 
 
-								{
-									// (propfloor == null || propfloor.length == 0 ?
-									//     null :
-									//     <>
-									//         <div className="SectionBlock responsive15">
-									//             <h3 className="font-weight700 colorBlue">Floorplans</h3>
-									//             <ul className="noMarginPad listStyleNone floorplanList">
-
-									//                 {propfloor.map((data) => {
-									//                     return (
-									//                         <FloorPlan data={data} />
-									//                     );
-									//                 })}
-									//             </ul>
-									//         </div>
-									//         <div className="d-flex align-items-center availSec responsive15 flex-wrap">
-									//             <div>
-									//                 <p className="mb-0">Last updated: <span className="colorBlue font-weight700">Wed, 28 August
-									//                     2020</span></p>
-									//             </div>
-									//             <div className="ml-auto Resnoauto">
-									//                 <button className="brdrRadius4 transition w-100 d-flex align-items-center justify-content-center" onClick={toggleModalAvailability}><img src={require('../../assets/img/mail.svg').default} /><span>Check
-									//                     Availability</span></button>
-									//             </div>
-									//         </div>
-
-									//     </>
-									// )
-								}
 
 
 
@@ -2259,8 +1721,6 @@ const PropertyDetailPage = ({ post }) => {
 													<><Amenities propamenities={propamenities} />
 														<div className="brdrLine"></div></>
 											}
-											{/* <Amenities propamenities={propamenities} /> */}
-											{/* <div className="brdrLine"></div> */}
 										</>
 								}
 
@@ -2533,7 +1993,6 @@ const PropertyDetailPage = ({ post }) => {
 																			`${propdetails.lease_office_time_open_monday.charAt(0) == '0' ? propdetails.lease_office_time_open_monday.substring(1) : propdetails.lease_office_time_open_monday}-${propdetails.lease_office_time_close_monday.charAt(0) == '0' ? propdetails.lease_office_time_close_monday.substring(1) : propdetails.lease_office_time_close_monday}`
 
 															}
-															{/* {propdetails.lease_office_time_open_monday} - {propdetails.lease_office_time_close_monday} */}
 														</span></p>
 													</li>
 													<li>
@@ -2547,7 +2006,6 @@ const PropertyDetailPage = ({ post }) => {
 																	propdetails.lease_office_time_open_tuesday == 'By Appt' ? 'by Appointment' :
 																		`${propdetails.lease_office_time_open_tuesday.charAt(0) == '0' ? propdetails.lease_office_time_open_tuesday.substring(1) : propdetails.lease_office_time_open_tuesday}-${propdetails.lease_office_time_close_tuesday.charAt(0) == '0' ? propdetails.lease_office_time_close_tuesday.substring(1) : propdetails.lease_office_time_close_tuesday}`
 															}
-															{/* {propdetails.lease_office_time_open_tuesday} - {propdetails.lease_office_time_close_tuesday} */}
 														</span></p>
 													</li>
 													<li>
@@ -2561,7 +2019,6 @@ const PropertyDetailPage = ({ post }) => {
 																	propdetails.lease_office_time_open_wednesday == 'By Appt' ? 'by Appointment' :
 																		`${propdetails.lease_office_time_open_wednesday.charAt(0) == '0' ? propdetails.lease_office_time_open_wednesday.substring(1) : propdetails.lease_office_time_open_wednesday}-${propdetails.lease_office_time_close_wednesday.charAt(0) == '0' ? propdetails.lease_office_time_close_wednesday.substring(1) : propdetails.lease_office_time_close_wednesday}`
 															}
-															{/* {propdetails.lease_office_time_open_wednesday} - {propdetails.lease_office_time_close_wednesday} */}
 														</span></p>
 													</li>
 													<li>
@@ -2577,7 +2034,6 @@ const PropertyDetailPage = ({ post }) => {
 																	propdetails.lease_office_time_open_thursday == 'By Appt' ? 'by Appointment' :
 																		`${propdetails.lease_office_time_open_thursday.charAt(0) == '0' ? propdetails.lease_office_time_open_thursday.substring(1) : propdetails.lease_office_time_open_thursday}-${propdetails.lease_office_time_close_thursday.charAt(0) == '0' ? propdetails.lease_office_time_close_thursday.substring(1) : propdetails.lease_office_time_close_thursday}`
 															}
-															{/* {propdetails.lease_office_time_open_thursday} - {propdetails.lease_office_time_close_thursday} */}
 														</span></p>
 													</li>
 													<li>
@@ -2593,7 +2049,6 @@ const PropertyDetailPage = ({ post }) => {
 																	propdetails.lease_office_time_open_friday == 'By Appt' ? 'by Appointment' :
 																		`${propdetails.lease_office_time_open_friday.charAt(0) == '0' ? propdetails.lease_office_time_open_friday.substring(1) : propdetails.lease_office_time_open_friday}-${propdetails.lease_office_time_close_friday.charAt(0) == '0' ? propdetails.lease_office_time_close_friday.substring(1) : propdetails.lease_office_time_close_friday}`
 															}
-															{/* {propdetails.lease_office_time_open_friday} - {propdetails.lease_office_time_close_friday} */}
 
 														</span></p>
 													</li>
@@ -2610,13 +2065,9 @@ const PropertyDetailPage = ({ post }) => {
 																	propdetails.lease_office_time_open_sturday == 'By Appt' ? 'by Appointment' :
 																		`${propdetails.lease_office_time_open_sturday.charAt(0) == '0' ? propdetails.lease_office_time_open_sturday.substring(1) : propdetails.lease_office_time_open_sturday}-${propdetails.lease_office_time_close_sturday.charAt(0) == '0' ? propdetails.lease_office_time_close_sturday.substring(1) : propdetails.lease_office_time_close_sturday}`
 															}
-															{/* {propdetails.lease_office_time_open_sturday} - {propdetails.lease_office_time_close_sturday} */}
 														</span></p>
 													</li>
-													{/* <li>
-                                            <p className="d-flex align-items-center font-weight500 colorBlue">Saturday<span
-                                                className="ml-auto font-weight400 secondaryColor">by Appointment</span></p>
-                                        </li> */}
+
 													<li>
 														<p className="d-flex align-items-center font-weight500 colorBlue">Sunday<span className="ml-auto font-weight400 secondaryColor">
 															{propdetails.lease_office_time_open_sunday == 0 && propdetails.lease_office_time_close_sunday == 0 ?
@@ -2629,11 +2080,8 @@ const PropertyDetailPage = ({ post }) => {
 																	propdetails.lease_office_time_open_sunday == 'By Appt' ? 'by Appointment' :
 																		`${propdetails.lease_office_time_open_sunday.charAt(0) == '0' ? propdetails.lease_office_time_open_sunday.substring(1) : propdetails.lease_office_time_open_sunday}-${propdetails.lease_office_time_close_sunday.charAt(0) == '0' ? propdetails.lease_office_time_close_sunday.substring(1) : propdetails.lease_office_time_close_sunday}`
 															}
-															{/* {propdetails.lease_office_time_open_sunday} - {propdetails.lease_office_time_close_sunday} */}
 														</span>
 
-															{/* <img
-                                                    src={require('../../assets/img/call.svg').default} />Call (626) 448-2699</span> */}
 														</p>
 													</li>
 												</ul>
@@ -2661,37 +2109,26 @@ const PropertyDetailPage = ({ post }) => {
 															</p>
 															:
 															null
-
 														}
-
-														{/* // <p className="font-weight400 colorBlue">
-                                            //     {propdetails.lease_length}
-                                            // </p> */}
 														{
 															propdetails.subsidized == 'Yes' || propdetails.section8 == 'Yes' || propdetails.handicap == 'Yes' ?
 																<>
 																	<ul className="noMarginPad listStyleNone floatLeftList clearfix">
-
-																		{propdetails.subsidized == 'Yes' || propdetails.section8 == 'Yes' ?
-																			<li>
-																				<img src={require('../../assets/img/lease1.svg').default} />
-																			</li>
-																			:
-																			null
-																		}
 																		{
 																			propdetails.handicap == 'Yes' ?
 																				<li>
-																					<img src={require('../../assets/img/lease2.svg').default} />
+																					<img src={require('../../assets/img/hcap1.png').default} />
 																				</li>
 																				:
 																				null
 																		}
-
-
-
-
-
+																		{propdetails.subsidized == 'Yes' || propdetails.section8 == 'Yes' ?
+																			<li>
+																				<img src={require('../../assets/img/equalhousingoppo1.png').default} />
+																			</li>
+																			:
+																			null
+																		}
 																	</ul>
 																	<p className="font-weight400 fontSize12">This institution is an equal opportunity
 																		provider.</p>
@@ -2699,22 +2136,6 @@ const PropertyDetailPage = ({ post }) => {
 																:
 																null
 														}
-
-														{/* // <ul className="noMarginPad listStyleNone floatLeftList clearfix">
-
-
-                                            //     <li>
-                                            //         <img src={require('../../assets/img/lease1.svg').default} />
-                                            //     </li>
-
-
-                                            //     <li>
-                                            //         <img src={require('../../assets/img/lease2.svg').default} />
-                                            //     </li> 
-
-
-                                            // </ul>*/}
-
 													</div>
 													<div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
@@ -2750,17 +2171,6 @@ const PropertyDetailPage = ({ post }) => {
 																:
 																null
 														}
-
-
-														{/* <h3 className="font-weight700 colorBlue">
-                                                Pet Policy</h3> */}
-														{/* <p className="colorBlue fontSize14 mb-0">
-                                                {propdetails.other_term}
-                                                Residents are permitted to keep common
-                                                household pets in their apartments. Service or assistance animals are also
-                                                welcome. 
-
-                                            </p> */}
 													</div>
 												</div>
 											</div>
@@ -2852,80 +2262,6 @@ const PropertyDetailPage = ({ post }) => {
 										</div>
 								}
 
-								{/* <div className="fairmarketRent responsive15">
-                                    <div className="d-flex align-items-center">
-                                        <h5 className="mb-0 fontSize18 font-weight700 colorBlue">{propdata.property_city} Fair Market Rents</h5>
-                                        <p className="mb-0 ml-auto fontSize14 font-weight400 secondaryColor">as of February 2021</p>
-                                    </div>
-                                    <p className="mb-0 secondaryColor fontSize16 font-weight400 mt-1">Fair Market Rents are HUD's
-                                        determination of the average rents in a particular area for each bedroom size. The FMRs
-                                        are set each year based on the rental rates of unsubsidized units so that participants
-                                        in HUD programs have equal access for affordable housing. Here are the Fair Market Rents
-                                        for {propdata.property_city}, {propdata.property_state}:</p>
-                                    <div className="bedroomBox itemWebsite">
-                                        <div className="bedroomBoxFlex">
-                                            <p className="mb-0 secondaryColor fontSize14 font-weight400">Efficiency</p>
-                                            <h4 className="mb-0 colorBlue font-weight700 fontSize16">${proprent.fmr0}</h4>
-                                        </div>
-                                        <div className="bedroomBoxFlex">
-                                            <p className="mb-0 secondaryColor fontSize14 font-weight400">One-Bedroom</p>
-                                            <h4 className="mb-0 colorBlue font-weight700 fontSize16">${proprent.fmr1}</h4>
-                                        </div>
-                                        <div className="bedroomBoxFlex">
-                                            <p className="mb-0 secondaryColor fontSize14 font-weight400">Two-Bedroom</p>
-                                            <h4 className="mb-0 colorBlue font-weight700 fontSize16">${proprent.fmr2}</h4>
-                                        </div>
-                                        <div className="bedroomBoxFlex">
-                                            <p className="mb-0 secondaryColor fontSize14 font-weight400">Three-Bedroom</p>
-                                            <h4 className="mb-0 colorBlue font-weight700 fontSize16">${proprent.fmr3}</h4>
-                                        </div>
-                                        <div className="bedroomBoxFlex">
-                                            <p className="mb-0 secondaryColor fontSize14 font-weight400">Four-Bedroom</p>
-                                            <h4 className="mb-0 colorBlue font-weight700 fontSize16">${proprent.fmr4}</h4>
-                                        </div>
-                                    </div>
-
-
-                                    <div className="itemMobile">
-                                        <div className="bedroomBox2">
-                                            <div className="d-flex align-items-top w-100">
-                                                <div className="w-50 brdrRight">
-                                                    <ul className="noMarginPad listStyleNone">
-                                                        <li>
-                                                            <p className="mb-0 fontSize14 font-weight400 secondaryColor">Efficiency
-                                                            </p>
-                                                            <h5 className="mb-0 colorBlue font-weight700">$200</h5>
-                                                        </li>
-                                                        <li>
-                                                            <p className="mb-0 fontSize14 font-weight400 secondaryColor">One-Bedroom
-                                                            </p>
-                                                            <h5 className="mb-0 colorBlue font-weight700">$600</h5>
-                                                        </li>
-                                                        <li>
-                                                            <p className="mb-0 fontSize14 font-weight400 secondaryColor">Two-Bedroom
-                                                            </p>
-                                                            <h5 className="mb-0 colorBlue font-weight700">$700</h5>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div className="w-50 padLeft16">
-                                                    <ul className="noMarginPad listStyleNone">
-                                                        <li>
-                                                            <p className="mb-0 fontSize14 font-weight400 secondaryColor">
-                                                                Three-Bedroom</p>
-                                                            <h5 className="mb-0 colorBlue font-weight700">$900</h5>
-                                                        </li>
-                                                        <li>
-                                                            <p className="mb-0 fontSize14 font-weight400 secondaryColor">
-                                                                Four-Bedroom</p>
-                                                            <h5 className="mb-0 colorBlue font-weight700">$1,200</h5>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> */}
 								{
 									propdata.property_type == 'general' ?
 										<>
@@ -2957,19 +2293,6 @@ const PropertyDetailPage = ({ post }) => {
 
 								<div>
 									<GoogleADS placeholderId='618' width='728px' height='90px' slotno='3956446321' />
-									{/* <ins class="adsbygoogle"
-                                        style={{
-                                            display: "inline-block"
-                                            // , width: `100%`, height: `100%`
-                                        }}
-                                        data-ad-client={GOOGLEADSCLIENTID}
-                                        data-ad-slot={'3956446321'}></ins> */}
-
-									{/* old rhd code  */}
-									{/* <ins class="adsbygoogle"
-                                        style="display:inline-block;width:728px;height:90px"
-                                        data-ad-client="ca-pub-2836217214879103"
-                                        data-ad-slot="6372819974"></ins> */}
 								</div>
 
 
@@ -2994,19 +2317,6 @@ const PropertyDetailPage = ({ post }) => {
 																	</div>
 																	<p className="mb-0 para fontSize16">{propdata.property_title} is very walkable and have good walk score.
 																		Most errands can be accomplished on foot.
-																		{/* {
-                                                                            propwalkscore.walkscore >= 90 && propwalkscore.walkscore <= 100 ?
-                                                                            ("walker's paradise and have good walk score. Don't"
-                                                                                'very walkable and have good walk score. Most errands can be accomplished on foot.' 
-
-                                                                                // propwalkscore.walkscore >= 70 && propwalkscore.walkscore <= 89 ?
-                                                                                
-                                                                                 :
-                                                                                null
-
-                                                                        } */}
-
-
 																	</p>
 																</div>
 															</>
@@ -3035,25 +2345,6 @@ const PropertyDetailPage = ({ post }) => {
 														:
 														null
 												}
-												{/* <div className="media-body">
-                                                    <div className="mt-0 d-flex align-items-center mb-0">
-                                                        <span>
-                                                            <img src={require('../../assets/img/walkScore.svg').default} />
-                                                        </span>
-                                                        <h6 className="font-weight500 mb-0">Walk Score</h6>
-                                                    </div>
-                                                    <p className="mb-0 para fontSize16">{propdata.property_title} is
-                                                        {
-
-                                                        }
-                                                        very walkable
-                                                        and
-                                                        have good walk score.
-                                                        Most errands can be accomplished on foot.
-
-                                                    </p>
-                                                </div> */}
-
 											</div>
 
 										</li>
@@ -3096,193 +2387,10 @@ const PropertyDetailPage = ({ post }) => {
 										null
 										:
 										<>
-
 											<SchoolItem schoolnearby={schoolnearby} />
-
-											{/* <div className="itemMobile responsive15">
-                                                <ul className="noMarginPad listStyleNone agendtailList">
-                                                    <li>
-                                                        <div className="media">
-                                                            <div className="media-body">
-                                                                <div className="d-flex align-items-center">
-                                                                    <h5 className="mt-0 mb-0 fontSize16 font-weight500 colorBlue">Bella Vista
-                                                                        Elementary</h5>
-                                                                </div>
-                                                                <p className="mb-0 fontSize14 font-weight500 secondaryColor">(323) 721-4335</p>
-                                                                <div className="d-flex align-items-center w-100 listTop12">
-                                                                    <div className="w-50">
-                                                                        <ul className="noMarginPad listStyleNone">
-                                                                            <li>
-                                                                                <h5 className="mb-0 fontSize16 font-weight500 colorBlue">N/A
-                                                                                </h5>
-                                                                                <p className="mb-0 secondaryColor font-weight500 fontSize12">
-                                                                                    Urban Center</p>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div className="w-50">
-                                                                        <ul className="noMarginPad listStyleNone">
-                                                                            <li>
-                                                                                <h5 className="mb-0 fontSize16 font-weight500 colorBlue">
-                                                                                    Monterey Park, CA</h5>
-                                                                                <p className="mb-0 secondaryColor font-weight500 fontSize12">
-                                                                                    City,State</p>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li className="brdrLinee"></li>
-                                                    <li>
-                                                        <div className="media">
-                                                            <div className="media-body">
-                                                                <div className="d-flex align-items-center">
-                                                                    <h5 className="mt-0 mb-0 fontSize16 font-weight500 colorBlue">Bella Vista
-                                                                        Elementary</h5>
-                                                                </div>
-                                                                <p className="mb-0 fontSize14 font-weight500 secondaryColor">(323) 721-4335</p>
-                                                                <div className="d-flex align-items-center w-100 listTop12">
-                                                                    <div className="w-50">
-                                                                        <ul className="noMarginPad listStyleNone">
-                                                                            <li>
-                                                                                <h5 className="mb-0 fontSize16 font-weight500 colorBlue">N/A
-                                                                                </h5>
-                                                                                <p className="mb-0 secondaryColor font-weight500 fontSize12">
-                                                                                    Urban Center</p>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div className="w-50">
-                                                                        <ul className="noMarginPad listStyleNone">
-                                                                            <li>
-                                                                                <h5 className="mb-0 fontSize16 font-weight500 colorBlue">
-                                                                                    Monterey Park, CA</h5>
-                                                                                <p className="mb-0 secondaryColor font-weight500 fontSize12">
-                                                                                    City,State</p>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li className="brdrLinee"></li>
-                                                    <li>
-                                                        <div className="media">
-                                                            <div className="media-body">
-                                                                <div className="d-flex align-items-center">
-                                                                    <h5 className="mt-0 mb-0 fontSize16 font-weight500 colorBlue">Bella Vista
-                                                                        Elementary</h5>
-                                                                </div>
-                                                                <p className="mb-0 fontSize14 font-weight500 secondaryColor">(323) 721-4335</p>
-                                                                <div className="d-flex align-items-center w-100 listTop12">
-                                                                    <div className="w-50">
-                                                                        <ul className="noMarginPad listStyleNone">
-                                                                            <li>
-                                                                                <h5 className="mb-0 fontSize16 font-weight500 colorBlue">N/A
-                                                                                </h5>
-                                                                                <p className="mb-0 secondaryColor font-weight500 fontSize12">
-                                                                                    Urban Center</p>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div className="w-50">
-                                                                        <ul className="noMarginPad listStyleNone">
-                                                                            <li>
-                                                                                <h5 className="mb-0 fontSize16 font-weight500 colorBlue">
-                                                                                    Monterey Park, CA</h5>
-                                                                                <p className="mb-0 secondaryColor font-weight500 fontSize12">
-                                                                                    City,State</p>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li className="brdrLinee"></li>
-                                                    <li>
-                                                        <div className="media">
-                                                            <div className="media-body">
-                                                                <div className="d-flex align-items-center">
-                                                                    <h5 className="mt-0 mb-0 fontSize16 font-weight500 colorBlue">Bella Vista
-                                                                        Elementary</h5>
-                                                                </div>
-                                                                <p className="mb-0 fontSize14 font-weight500 secondaryColor">(323) 721-4335</p>
-                                                                <div className="d-flex align-items-center w-100 listTop12">
-                                                                    <div className="w-50">
-                                                                        <ul className="noMarginPad listStyleNone">
-                                                                            <li>
-                                                                                <h5 className="mb-0 fontSize16 font-weight500 colorBlue">N/A
-                                                                                </h5>
-                                                                                <p className="mb-0 secondaryColor font-weight500 fontSize12">
-                                                                                    Urban Center</p>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div className="w-50">
-                                                                        <ul className="noMarginPad listStyleNone">
-                                                                            <li>
-                                                                                <h5 className="mb-0 fontSize16 font-weight500 colorBlue">
-                                                                                    Monterey Park, CA</h5>
-                                                                                <p className="mb-0 secondaryColor font-weight500 fontSize12">
-                                                                                    City,State</p>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li className="brdrLinee"></li>
-                                                    <li>
-                                                        <div className="media">
-                                                            <div className="media-body">
-                                                                <div className="d-flex align-items-center">
-                                                                    <h5 className="mt-0 mb-0 fontSize16 font-weight500 colorBlue">Bella Vista
-                                                                        Elementary</h5>
-                                                                </div>
-                                                                <p className="mb-0 fontSize14 font-weight500 secondaryColor">(323) 721-4335</p>
-                                                                <div className="d-flex align-items-center w-100 listTop12">
-                                                                    <div className="w-50">
-                                                                        <ul className="noMarginPad listStyleNone">
-                                                                            <li>
-                                                                                <h5 className="mb-0 fontSize16 font-weight500 colorBlue">N/A
-                                                                                </h5>
-                                                                                <p className="mb-0 secondaryColor font-weight500 fontSize12">
-                                                                                    Urban Center</p>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div className="w-50">
-                                                                        <ul className="noMarginPad listStyleNone">
-                                                                            <li>
-                                                                                <h5 className="mb-0 fontSize16 font-weight500 colorBlue">
-                                                                                    Monterey Park, CA</h5>
-                                                                                <p className="mb-0 secondaryColor font-weight500 fontSize12">
-                                                                                    City,State</p>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div> */}
 										</>
 
 								}
-
-								{/* // <div className="responsive15">
-                                //     <div className="titleHeading">
-                                //         <h3 className="fontSize18 font-weight700">Schools Nearby</h3>
-                                //     </div>
-                                //     <SchoolItem schoolnearby={schoolnearby} />
-                                // </div> */}
-
 
 								<div className="SectionBlock responsive15 availabilitySection">
 									<div className="d-flex mb-2 align-items-center">
@@ -3322,7 +2430,6 @@ const PropertyDetailPage = ({ post }) => {
 
 						{/* Right side section  */}
 
-
 						<div className="col-lg-4 col-md-8 col-sm-12 col-xs-12 itemWebsite">
 							<div className="detailRightSec">
 								<div className="checkAvailability">
@@ -3333,22 +2440,11 @@ const PropertyDetailPage = ({ post }) => {
 												<div className="dealTag font-weight700 brdrRadius4 d-flex align-items-center">
 													Affordable Housing
 												</div>
-
 												:
 												<div className="dealTag font-weight700 brdrRadius4 d-flex align-items-center">
 													{specialtitle}
 												</div>
-
 										}
-
-
-										{/* <div className="dealTag font-weight700 brdrRadius4 d-flex align-items-center">
-                                            <img src={require('../../assets/img/goodDeal.svg').default} /> 
-                                            {specialtitle}
-                                        </div> */}
-
-
-
 										{
 											propdata.property_type == 'general' ?
 												<div className="ml-auto">
@@ -3369,11 +2465,6 @@ const PropertyDetailPage = ({ post }) => {
 														null
 												)
 										}
-										{/* <div className="ml-auto">
-                                            <h2 className="mb-0 font-weight700">
-                                                thirdval
-                                            </h2>
-                                        </div> */}
 									</div>
 
 
@@ -3401,22 +2492,6 @@ const PropertyDetailPage = ({ post }) => {
 											</ul>
 									}
 
-
-									{/* <ul className="noMarginPad listStyleNone floatLeftList clearfix detailList">
-                                        <li className="secondaryColor">
-                                            <span className="colorBlue">{specialtext}</span>
-                                        </li>
-                                         <li className="secondaryColor">
-                                            <span className="colorBlue">{decimalRoundOff(propdetails.min_bath)}</span> Ba
-                                        </li>
-                                        <li className="secondaryColor ml-16">
-                                            <span className="colorBlue">
-                                            </span> Sq.ft
-                                        </li>
-                                        <li className="secondaryColo ml-16">
-                                            <span className="colorBlue">Affordable Housing</span>
-                                        </li> 
-                                    </ul>*/}
 									<div className="brdrLine mar-15"></div>
 									<div className="sideFormBlock">
 										<div className="SectionBlock responsive15 availabilitySection">
@@ -3435,9 +2510,7 @@ const PropertyDetailPage = ({ post }) => {
 												{
 													propdata.phone == '' || propdata.phone == null ?
 														null
-
 														:
-
 														<p className="colorGreen font-weight700 fontSize18">
 															<img
 																src={require('../../assets/img/callGreen.svg').default} className="twentyfourbytwentyfour" />{propdata.phone}</p>
@@ -3455,21 +2528,6 @@ const PropertyDetailPage = ({ post }) => {
 								</div>
 
 								<div style={{ "margin-top": '24px' }}>
-									{/* <ins class="adsbygoogle"
-                                        style={{
-                                            display: "inline-block"
-                                            // , width: `100%`, height: `100%`
-                                        }}
-                                        data-ad-client={GOOGLEADSCLIENTID}
-                                        data-ad-slot={'6857091773'}></ins> */}
-
-
-									{/* old rhd code  */}
-									{/* <ins class="adsbygoogle"
-                                        style="display:inline-block;width:300px;height:600px"
-                                        data-ad-client="ca-pub-2836217214879103"
-                                        data-ad-slot="2072690303"></ins> */}
-
 									<GoogleADS placeholderId='632' width='300px' height='250px' slotno='6857091773' />
 								</div>
 
@@ -3493,21 +2551,6 @@ const PropertyDetailPage = ({ post }) => {
 								<AffordabilityCal />
 								<CityCountyQuickFacts propincome={propincome} />
 								<div style={{ "margin-top": '24px' }}>
-									{/* <ins class="adsbygoogle"
-                                        style={{
-                                            display: "inline-block"
-                                            // , width: `100%`, height: `100%`
-                                        }}
-                                        data-ad-client={GOOGLEADSCLIENTID}
-                                        data-ad-slot={'1505526895'}></ins> */}
-
-
-									{/* old rhd code  */}
-									{/* <ins class="adsbygoogle"
-                                        style="display:inline-block;width:300px;height:600px"
-                                        data-ad-client="ca-pub-2836217214879103"
-                                        data-ad-slot="2072690303"></ins> */}
-
 									<GoogleADS placeholderId='149' width='300px' height='600px' slotno='1505526895' />
 								</div>
 							</div>
@@ -3529,22 +2572,6 @@ const PropertyDetailPage = ({ post }) => {
 						</div>
 
 						<div>
-							{/* <ins class="adsbygoogle"
-                                style={{
-                                    display: "inline-block"
-                                    // , width: `100%`, height: `100%`
-                                }}
-                                data-ad-client={GOOGLEADSCLIENTID}
-                                data-ad-slot={'7791749557'}></ins> */}
-
-
-							{/* old rhd code  */}
-							{/* <ins class="adsbygoogle"
-                                style="display:inline-block;width:728px;height:90px"
-                                data-ad-client="ca-pub-2836217214879103"
-                                data-ad-slot="6372819974"></ins> */}
-
-
 							<GoogleADS placeholderId='145' width='970px' height='250px' slotno='7791749557' />
 						</div>
 
@@ -3559,46 +2586,7 @@ const PropertyDetailPage = ({ post }) => {
 										proplocalinfo.city_name[0].city_name
 									}
 								</h3>
-								{/* <p className="Seminole Gardens Apartments" */}
 								<p className="fontSize16 font-weight400 colorBlue" dangerouslySetInnerHTML={{ __html: replaceSpace(proplocalinfo.city_name[0].info) }} />
-
-								{/* <p className="Seminole Gardens ApartmentsSeminole Gardens ApartmentsSeminole Gardens Apartments">Anaheim is a city inhabited by over 300 thousand
-                                    individuals, making it the most populous in Orange County, California. When it comes to the
-                                    land area, however, Anaheim comes in second in the county, next to Irvine.</p>
-                                <p className="fontSize16 font-weight400 colorBlue">The city of Anaheim is quite famous for its theme
-                                    parks, convention center, sports teams, and other various tourist attractions. To most of
-                                    the locals and tourists though, the vibrancy of the city and its many diverse cultures and
-                                    traditions is what made them fall in love with Anaheim.</p>
-                                <p className="fontSize16 font-weight400 colorBlue">On the other hand, the housing condition in this
-                                    rather beautiful city is really not as difficult as it may seem. Granted that the state of
-                                    California was one of those that were hit quite hard during the housing crisis and the
-                                    recession, the housing opportunities in the city of Anaheim has actually gotten better since
-                                    then.</p>
-                                <h3 className="fontSize18 font-weight700">Affordable Housing in Anaheim, CA</h3>
-                                <p className="fontSize16 font-weight400 colorBlue">In this city, the Anaheim Housing Authority (AHA)
-                                    is the agency responsible for the proper administration of public housing programs, rental
-                                    assistance, and other community development projects aimed at the revitalization of the
-                                    city’s neighborhoods.</p>
-                                <p className="fontSize16 font-weight400 colorBlue">There are many housing programs managed by the
-                                    housing authority and administered to the low income families, senior citizens, and the
-                                    physically and mentally challenged individuals of the city. There are affordable apartment
-                                    deals for people looking to rent and the downpayment assistance program for families looking
-                                    to buy their first home.</p>
-                                <p className="fontSize16 font-weight400 colorBlue">There are different ways to receive housing
-                                    assistance in the city of Anaheim. You just have to know what they are, and whether or not
-                                    you are eligible for the low income housing tax credit and other housing programs they might
-                                    have available.</p>
-                                <h3 className="fontSize18 font-weight700">Rental Assistance in Anaheim, CA</h3>
-                                <p className="fontSize16 font-weight400 colorBlue">The Section 8 Voucher Program, or Housing Choice
-                                    Voucher (HCV), is the main rental assistance program provided by the housing authority to
-                                    the residents of Anaheim. Funded by the US Department of Housing and Urban Development
-                                    (HUD), the HCV promotes equal housing opportunities to the economically-challenged families
-                                    who participate in the program.</p>
-                                <p className="fontSize16 font-weight400 colorBlue">If you qualify for the HCV program, you can opt
-                                    for decent rental housing deals in the private sector. This means that if you receive rental
-                                    assistance from the agency through the Section 8 Voucher program, you won’t have to stay in
-                                    public housing. Your family deserves better, so find your place now and get your loved ones
-                                    a good place to live in.</p> */}
 							</div>
 						</div>
 					</div>
@@ -3608,160 +2596,19 @@ const PropertyDetailPage = ({ post }) => {
 				<div className="">
 					<div className="bottom-box">
 						<div className="checkAvailability newBoxBottom">
-							{/* <div className="d-flex align-items-center">
-
-                                {post.details == null ||
-                                    post.details == "" ? null : post.details.subsidized == "Yes" &&
-                                        post.details.section8 == "Yes" ?
-
-                                    <>
-
-                                        <div className="dealTag font-weight700 brdrRadius4 d-flex align-items-center">
-                                            <img src={require('../../assets/img/goodDeal.svg').default} />Good Deal
-                                        </div>
-                                        <div className="ml-auto">
-                                            <h2 className="mb-0 font-weight700" style={{ color: "#1BC47D" }}>
-                                                {
-                                                    propdata.property_type == 'general' ?
-                                                        'CALL'
-                                                        :
-                                                        (thirdval !== null || thirdval !== '' ?
-                                                            thirdval :
-                                                            null)
-                                                }
-                                            </h2>
-                                        </div>
-                                    </>
-                                    :
-                                    <>
-                                        <div className="ml-auto">
-                                            <h2 className="mb-0 font-weight700" style={{ color: "#000" }}>
-                                                {
-                                                    propdata.property_type == 'general' ?
-                                                        'CALL'
-                                                        :
-                                                        (thirdval !== null || thirdval !== '' ?
-                                                            thirdval :
-                                                            null)
-                                                }
-                                            </h2>
-                                        </div>
-                                    </>
-                                }
-
-                            </div> */}
-							{/* <ul className="noMarginPad listStyleNone floatLeftList clearfix detailList d-flex align-items-center" style={{ "margin-top": "8px" }}>
-
-                                {
-                                    propdetails.min_bed && propdetails.max_bed ?
-
-                                        <li className="secondaryColor">
-                                            <span className="colorBlue">{propdetails.min_bed}-{propdetails.max_bed}</span> Bd
-                                        </li>
-
-                                        :
-                                        propdetails.min_bed || propdetails.max_bed ?
-
-                                            <li className="secondaryColor">
-                                                <span className="colorBlue"> {propdetails.min_bed || propdetails.max_bed}</span> Bd
-                                            </li>
-
-
-                                            :
-
-                                            <li className="secondaryColor">
-                                                <span className="colorBlue"> N/A</span> Bd
-                                            </li>
-
-                                }
-
-
-
-                                {
-                                    propdetails.min_bath && propdetails.max_bath ?
-
-
-                                        <li className="secondaryColor ml-2">
-                                            <span className="colorBlue">{decimalRoundOff(propdetails.min_bath)}-{decimalRoundOff(propdetails.max_bath)}</span> Ba
-                                        </li>
-
-                                        :
-                                        propdetails.min_bath || propdetails.max_bath ?
-
-                                            <li className="secondaryColor ml-2">
-                                                <span className="colorBlue">{decimalRoundOff(propdetails.min_bath) || decimalRoundOff(propdetails.max_bath)}</span> Ba
-                                            </li>
-
-
-                                            :
-
-                                            <li className="secondaryColor ml-16">
-                                                <span className="colorBlue">N/A</span> Ba
-                                            </li>
-
-
-                                }
-
-                                {
-                                    propfloor.length == 0 ?
-
-                                        <li className="secondaryColor ml-16">
-                                            <span className="colorBlue"> N/A</span> Sq.ft
-                                        </li>
-
-
-                                        :
-                                        propfloor[0].square_feet_from == propfloor[propfloor.length - 1].square_feet_to ?
-                                            <li className="secondaryColor ml-16">
-                                                <span className="colorBlue">  {propfloor[0].square_feet_from == 0 || propfloor[0].square_feet_from == '0' ?
-                                                    'N/A' : propfloor[0].square_feet_from}</span> Sq.ft
-                                            </li>
-
-
-                                            :
-
-
-                                            <li className="secondaryColor ml-16">
-                                                <span className="colorBlue"> {propfloor[0].square_feet_from} - {propfloor[propfloor.length - 1].square_feet_to}</span> Sq.ft
-                                            </li>
-
-                                }
-
-                                {
-                                    propdata.property_type == 'general' ?
-
-                                        <li className="secondaryColo ml-auto">
-                                            <span className="colorBlue">Affordable Housing</span>
-                                        </li>
-
-
-                                        :
-
-                                        <li className="secondaryColo ml-auto">
-                                            <span className="colorBlue">{specialtitle}</span>
-                                        </li>
-
-
-                                }
-
-
-                            </ul> */}
 							<div className="d-flex align-items-center responsive15 flex-wrap p-0 justify-content-center" style={{ "margin-top": "0px" }}>
-
 								{propdata.phone == '' || propdata.phone == null ?
 									<div className="lineBlueBtn">
 										<a href="javascript:;" >Call</a>
 									</div>
 									:
-
 									<div className="lineBlueBtn">
 										<a href={`tel:${propdata.phone}`}>Call</a>
 									</div>
 								}
-
 								<div className="Resnoauto emailFillBtn">
-
-									<a href="javascript:;" onClick={() => { toggleModalAvailability() }} className="brdrRadius4 transition" >Email
+									<a href="javascript:;" onClick={() => { toggleModalAvailability() }} className="brdrRadius4 transition" >
+										Email
 									</a>
 								</div>
 							</div>
@@ -3774,10 +2621,7 @@ const PropertyDetailPage = ({ post }) => {
 
 				<Modal isOpen={isOpenQualify}
 					onRequestClose={toggleModalQualify} className="prerental agencydetail-modal modalclassqualify">
-
 					<div className='modal-content'>
-
-
 						<div className="modal-header">
 							<h5 className="modal-title w-100 text-center font-weight700"
 								id="exampleModalLabel">Pre-Rental Qualify</h5>
@@ -3786,8 +2630,6 @@ const PropertyDetailPage = ({ post }) => {
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-
-
 						<div className="modal-body">
 							<form onSubmit={handleSubmit}>
 								<div className="row">
@@ -3902,14 +2744,6 @@ const PropertyDetailPage = ({ post }) => {
 												}
 
 											</select>
-
-											{/* <div className="posRel calnderIcon">
-                                                <input type="number"
-                                                    className="form-control" id=""
-                                                    aria-describedby="emailHelp"
-                                                    placeholder="Number of occupants"
-                                                    value={formData.occupants} onChange={(e) => setformData({ ...formData, occupants: e.target.value })} required />
-                                            </div> */}
 										</div>
 									</div>
 									<div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -3955,10 +2789,7 @@ const PropertyDetailPage = ({ post }) => {
 												<label className="form-check-label">On waiting list</label>
 											</div>
 										</div>
-
-										{/* <button onClick={onClick}> Click Value </button> */}
 									</div>
-									{/* <p>{radiobutton}</p> */}
 								</div>
 								<div className="brdrLine"></div>
 								<div className="condiBlock form-group">
@@ -3968,28 +2799,9 @@ const PropertyDetailPage = ({ post }) => {
 									<p className="secondaryColor fontSize14 mb-0 maxParaScroll">
 										This is NOT an application for rental assistance. It is only being forwarded for review by the selected Housing Agency, Management Company or Property Owner who determine eligibility and approval. Receipt of your information does not guarantee acceptance in any rental assistance program, nor will it place you on any waiting list. Further information will be required to determine your eligibility for any Rental Assistance program and approval for a selected unit and you are responsibile for continuing the qualification process.By clicking on the Submit button below, you agree that you have read, understand, and accept these terms and conditions.
 									</p>
-									{/* <textarea className="form-control"
-                                            id="exampleFormControlTextarea1" rows="3"
-                                            value={formData.disclaimer}
-                                            placeholder="This is NOT an application for rental assistance. It is only being forwarded for review by the selected Housing Agency, Management Company or Property Owner who determine eligibility and approval. Receipt of your information does not guarantee acceptance in any rental assistance program, nor will it place you on any waiting list. Further information will be required to determine your eligibility for any Rental Assistance program and approval for a selected unit and you are responsibile for continuing the qualification process.By clicking on the Submit button below, you agree that you have read, understand, and accept these terms and conditions."></textarea> */}
-
 								</div>
 								<div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 pl-0 pr-0">
 									<div className="form-group">
-										{/* <ReCAPTCHA */}
-										{/* <div className="recaptcha_block">
-											<ReCAPTCHA
-												sitekey='6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
-												onChange={captchaHandle} />
-										</div>
-										{
-											captchaValue == false
-												?
-												<span>Please Varify Captcha</span>
-												:
-												null
-
-										} */}
 										<div
 											className="g-recaptcha"
 											data-sitekey={'6Ld3X8ggAAAAAAKaJ5gDXpXHyJPQsE83lvQrI9Uh'}
@@ -4004,7 +2816,6 @@ const PropertyDetailPage = ({ post }) => {
 								</div>
 								<div className="modal-footer brdrNoneTop p-0">
 									<button type="submit"
-										// onClick={captchacheck}
 										className="btn w-100 modalSubmitBtn fontSize16 font-weight500 colorWhite">Submit</button>
 								</div>
 							</form>
@@ -4030,11 +2841,9 @@ const PropertyDetailPage = ({ post }) => {
 							{propdata.phone}
 						</h5>
 						<div className="ml-auto d-flex align-items-center marginCross">
-							{/* <a href="" className="modalCheck colorWhite">Check Availability</a> */}
 							<ul className="noMarginPad listStyleNone sideActionIcon">
 								<li className="brdrRadius4 itemWebsite">
 									<i className="far fa-heart lightbluemodified"></i>
-									{/* <img src={require('../../assets/img/redHeart.png').default} /> */}
 								</li>
 								<li className="brdrRadius4 itemWebsite mr-0">
 									<img src={require('../../assets/img/share.svg').default} />
@@ -4056,29 +2865,12 @@ const PropertyDetailPage = ({ post }) => {
 										<div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 											<div className="modalPop">
 												{propimages.map((data) => (
-													// <ImageSliderCarouselItem data={data} />
-													// {console.log()}
-													// console.log()
 													<div className="modalListImage">
 														<img src={`https://managers.rentalhousingdeals.com/${data.photo}`} />
 													</div>
 												))}
-
-												{/* <div className="modalListImage">
-                                                    <img
-                                                        src={require('../../assets/img/propertyDetailModalPhoto.png').default} />
-                                                </div>
-                                                <div className="modalListImage">
-                                                    <img
-                                                        src={require('../../assets/img/propertyDetailModalPhoto2.png').default} />
-                                                </div> */}
 											</div>
 										</div>
-										{/* <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div className="modalLeft">
-                                                <img src={require('../../assets/img/modalSidePopup.png').default} />
-                                            </div>
-                                        </div> */}
 										<div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 											<div className="sideFormBlock">
 												<div
@@ -4127,68 +2919,12 @@ const PropertyDetailPage = ({ post }) => {
 				<Modal isOpen={isOpenAvailability}
 					onRequestClose={toggleModalAvailability} className="propertdetailmodal modaladjustment">
 					<div className="modal-header d-flex align-items-center">
-						{/* <h5 className="modal-title fontSize16 font-weight400 ml-22"
-							id="exampleModalLongTitle">
-							{propdata.property_address} {propdata.property_city}, {propdata.property_state} {propdata.property_zip} Rental Deals&nbsp;
-							{
-								propdetails.length == 0 ? "" : ` ${propdetails.min_bed} Br. ${decimalRoundOff(propdetails.min_bath)} Ba $${propdetails.min_rent}`
-							}
-							{propdata.phone}
-						</h5> */}
 						<button type="button" className="close" onClick={toggleModalAvailability} aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div className="modal-body rentalForm availBodyBlock">
 						<div className="row">
-							{/* <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-								<div className="modalLeft">
-									<div className="imageSecleftModal posRel">
-										{
-											propimages == '' || propimages == null || propimages == undefined || propimages.length == 0 ?
-												<img className="imgmodal" src={`https://managers.rentalhousingdeals.com/images/l_thumbs/affordable-no-image.jpg`} />
-
-												:
-												<img className="imgmodal" src={`https://managers.rentalhousingdeals.com/${propimages[0].photo}`} />
-
-										}
-										<div className="sliderTagName brdrRadius4 colorWhite font-weight700">
-											{specialtitle}</div>
-									</div>
-									<div className="d-flex align-items-center">
-										<div className="lefttitle">
-											<h5 className="mb-0 fontSize18 font-weight700 colorBlue">
-												{propdata.property_title}
-											</h5>
-											<p className="mb-0 fontSize16 font-weight400 secondaryColor">
-												{propdata.property_address} {propdata.property_city}, {propdata.property_state} {propdata.property_zip}</p>
-										</div>
-										<div className="ml-auto">
-											<img src={require('../../assets/img/goodDeal.svg').default} />
-										</div>
-									</div>
-									<div className="sliderListing">
-										<ul className="clearfix d-flex align-items-center">
-											<li className="fontSize17"><b>{propdetails.min_bed == 0 || propdetails.min_bed == '' ? 'N/A' : propdetails.min_bed}</b>Bd </li>
-											<li className="fontSize17"><b>{propdetails.min_bath == 0 || propdetails.min_bath == '' ? 'N/A' : decimalRoundOff(propdetails.min_bath)}</b>Ba </li>
-											<li className="fontSize17"><b>
-
-												{
-													propfloor.length == 0 ? <>N/A</> :
-
-														propfloor[0].square_feet_from
-
-												}
-
-											</b>Sq.Ft</li>
-											<li className="ml-auto boldTag greenText fontSize24">${propdetails.min_rent}</li>
-										</ul>
-									</div>
-									<p className="para fontSize14 font-weight400 secondaryColor" dangerouslySetInnerHTML={{ __html: replaced }} />
-
-
-								</div>
-							</div> */}
 							<div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								<div className="sideFormBlock">
 									<div className="SectionBlock responsive15 availabilitySection">
@@ -4245,81 +2981,29 @@ const PropertyDetailPage = ({ post }) => {
 
 							<h3 className="font-weight700 fontSize24">Thanks for submitting your inquiry!</h3>
 							<p className="font-weight400 fontSize16 ">
-								Your message has been sent</p>
-							{/* <button onClick={() => {
-        toggleModalThankYou();
-    }} className=" brdrRadius4 ml-auto asd">Done</button> */}
+								Your message has been sent
+							</p>
 						</div>
 
 						<a className="recommendsection" href="https://secure.rspcdn.com/xprr/red/PID/921/SID/thankyou,detailspg" target="_blank" onClick={toggleModalThankYou}>
-
 							<h3>Recommended Step:</h3>
-							<p className="fontSize16 font-weight400 para">Landlords oftern favour applicants with high score. Do you know your credit score? Click below to see yours for free!
+							<p className="fontSize16 font-weight400 para">
+								Landlords oftern favour applicants with high score. Do you know your credit score? Click below to see yours for free!
 							</p>
-
 							<button className="transition">SEE SCORES NOW</button>
-
 						</a>
-
 					</div>
-
 				</Modal>
 
 
 
 
-
-
-
-				{/* <Modal isOpen={isopenschool}
-                    onRequestClose={toggleisopenschool} className="prerental">
-                    <div className="modal-header">
-                        <h5 className="modal-title w-100 text-center font-weight700"
-                            id="exampleModalLabel">Pre-Rental Qualify</h5>
-                        <button type="button" className="close"
-                            aria-label="Close" onClick={toggleisopenschool}>
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div className="modal-body">
-                        hellow
-                    </div>
-                </Modal> */}
 			</section>
-
-			{/* <Carousel 
-                // swipeable={false}
-                // draggable={false}
-                // showDots
-                responsive={responsive}
-                // ssr={true} // means to render carousel on server-side.
-                infinite
-            // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-            // autoPlaySpeed={1000}
-            // keyBoardControl={true}
-            // customTransition="all .5"
-            // transitionDuration={500}
-            // containerclassName="carousel-container"
-            // removeArrowOnDeviceType={["tablet", "mobile"]}
-            // deviceType={this.props.deviceType}
-            // dotListclassName="custom-dot-list-style"
-            // itemclassName="carousel-item-padding-40-px"
-            >
-                <div>Item 1</div>
-                <div>Item 2</div>
-                <div>Item 3</div>
-                <div>Item 4</div>
-            </Carousel> */}
-
-
-
 			<Helmet>
 				<script type="text/javascript">
 					{adsHeadScript}
 				</script>
 			</Helmet>
-
-
 		</>
 	)
 }
