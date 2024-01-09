@@ -2117,14 +2117,14 @@ const PropertyDetailPage = ({ post }) => {
 																		{
 																			propdetails.handicap == 'Yes' ?
 																				<li>
-																					<img src={require('../../assets/img/hcap1.png').default} />
+																					<img src={require('../../assets/img/hcap.png').default} />
 																				</li>
 																				:
 																				null
 																		}
 																		{propdetails.subsidized == 'Yes' || propdetails.section8 == 'Yes' ?
 																			<li>
-																				<img src={require('../../assets/img/equalhousingoppo1.png').default} />
+																				<img src={require('../../assets/img/equalhousingoppo.png').default} />
 																			</li>
 																			:
 																			null
